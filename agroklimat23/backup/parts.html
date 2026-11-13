@@ -1,0 +1,1118 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Запчасти со склада — каталог запчастей для спецтехники | АгроКлимат23</title>
+<meta name="description" content="Запчасти со склада в Краснодарском крае: каталог запчастей для кондиционеров и отопителей сельхоз- и спецтехники — компрессоры, шланги, теплообменники, расходники. Отгрузка день в день.">
+<style>
+  :root{
+    --green:#0f3d2e; --green2:#14532d; --green3:#1d6a44;
+    --amber:#f59e0b; --amber2:#d97706;
+    --bg:#f4f6f2; --card:#ffffff; --ink:#14211a; --muted:#5c6b60;
+    --radius:16px; --shadow:0 10px 30px rgba(15,61,46,.10);
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:'Segoe UI',system-ui,-apple-system,Roboto,Arial,sans-serif;color:var(--ink);background:var(--bg);line-height:1.55}
+  img{max-width:100%;display:block}
+  a{text-decoration:none;color:inherit}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 20px}
+  .btn{display:inline-block;background:var(--amber);color:#1c1200;font-weight:700;padding:13px 24px;border-radius:12px;border:none;cursor:pointer;font-size:15.5px;transition:.2s;box-shadow:0 6px 18px rgba(245,158,11,.35)}
+  .btn:hover{background:var(--amber2);transform:translateY(-2px)}
+
+  .topbar{background:var(--green);color:#cfe3d6;font-size:14px;padding:8px 0}
+  .topbar .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+  .topbar b{color:#fff}
+  .topbar a:hover{color:var(--amber)}
+
+  header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.96);backdrop-filter:blur(8px);box-shadow:0 2px 14px rgba(0,0,0,.07)}
+  .nav{display:flex;align-items:center;justify-content:space-between;padding:14px 0;gap:14px;flex-wrap:wrap}
+  .logo{font-size:22px;font-weight:800;color:var(--green)}
+  .logo span{color:var(--amber)}
+  .logo small{display:block;font-size:11px;font-weight:600;color:var(--muted);letter-spacing:.6px;text-transform:uppercase}
+  .back{font-weight:700;color:var(--green3);font-size:17px}
+  .back:hover{color:var(--amber2)}
+
+  .crumbs{padding:22px 0 0;font-size:13.5px;color:var(--muted)}
+  .crumbs a{color:var(--green3);font-weight:600}
+  .crumbs a:hover{color:var(--amber2)}
+
+  .pagehead{padding:26px 0 8px}
+  .pagehead .kicker{color:var(--amber2);font-weight:800;letter-spacing:1.4px;font-size:13px;text-transform:uppercase;margin-bottom:8px}
+  .pagehead h1{font-size:clamp(26px,3.6vw,40px);color:var(--green);margin-bottom:10px}
+  .pagehead p{color:var(--muted);max-width:760px;font-size:16px}
+
+  .filters{display:flex;gap:10px;flex-wrap:wrap;padding:22px 0 6px}
+  .chip{border:1.5px solid #d5ddd2;background:#fff;color:var(--green);font-weight:700;font-size:14px;padding:9px 18px;border-radius:999px;cursor:pointer;transition:.15s}
+  .chip:hover{border-color:var(--green3)}
+  .chip.active{background:var(--green2);border-color:var(--green2);color:#fff}
+
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:20px;padding:26px 0 10px}
+  .ccard{background:var(--card);border:1px solid #e6eae3;border-radius:18px;padding:22px;display:flex;flex-direction:column;position:relative;transition:.2s;cursor:pointer}
+  .ccard:hover{transform:translateY(-4px);box-shadow:var(--shadow);border-color:#c9d6c7}
+.ccard .pic{height:165px;border-radius:12px;background:#fff;overflow:hidden;margin-bottom:14px;padding:4px}
+.ccard .pic img{width:100%;height:100%;object-fit:contain;transition:.3s}
+.ccard:hover .pic img{transform:scale(1.05)}
+
+/* Карусель фото в карточке */
+.ccard .pic.car{position:relative;padding:0}
+.ccard .track{display:flex;height:100%;transition:transform .5s ease}
+.ccard .track img{min-width:100%;width:100%;height:100%;object-fit:contain;transition:none}
+.ccard:hover .pic.car img{transform:none}
+.ccard .cnav{position:absolute;top:50%;transform:translateY(-50%);width:32px;height:32px;border-radius:50%;border:none;background:var(--amber);color:#1c1200;font-size:18px;font-weight:800;line-height:1;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 3px 12px rgba(0,0,0,.3);transition:.15s;z-index:6}
+.ccard .cnav:hover{background:var(--amber2);transform:translateY(-50%) scale(1.1)}
+.ccard .cnav.prev{left:7px}
+.ccard .cnav.next{right:7px}
+.ccard .dots{position:absolute;bottom:7px;left:0;right:0;display:flex;gap:6px;justify-content:center;z-index:3}
+.ccard .dots i{width:7px;height:7px;border-radius:50%;background:rgba(15,61,46,.25)}
+.ccard .dots i.on{background:var(--green2)}
+
+/* Характеристики по наведению */
+/* Карточка с выпадающей панелью: фото крупно сверху, список выезжает ВНИЗ под карточку */
+.ccard.drop .pic{height:auto;aspect-ratio:1/1;padding:0;margin:0 -22px 14px;border-radius:0}
+.ccard.drop:hover{z-index:20}
+.ccard .specs{position:absolute;top:calc(100% - 10px);left:0;right:0;background:rgba(255,255,255,.98);border:1px solid #e6eae3;border-top:none;border-radius:0 0 18px 18px;padding:20px 22px;z-index:25;opacity:0;visibility:hidden;transform:translateY(-8px);transition:opacity .25s ease,transform .25s ease,visibility .25s;display:flex;flex-direction:column;box-shadow:0 20px 34px rgba(15,61,46,.16)}
+.ccard:hover .specs,.ccard:active .specs{opacity:1;visibility:visible;transform:translateY(0)}
+.ccard .specs .stitle{font-size:19px;font-weight:800;color:var(--ink);line-height:1.2}
+.ccard .specs .savail{font-size:13px;font-weight:700;color:#16a34a;margin:4px 0 10px}
+.ccard .specs .shead{font-size:11.5px;font-weight:800;letter-spacing:1.2px;color:var(--muted);text-transform:uppercase;margin-bottom:6px}
+.ccard .specs .row{display:flex;justify-content:space-between;gap:12px;font-size:13.5px;padding:6px 0;border-bottom:1px dashed #e3e8e0}
+.ccard .specs .row span{color:var(--muted)}
+.ccard .specs .row b{color:var(--ink);font-weight:700;text-align:right;white-space:nowrap}
+.ccard .specs .shint{margin-top:8px;padding-top:12px;font-weight:800;font-size:14.5px;color:var(--amber2)}
+.ccard .specs .stext{font-size:13.5px;color:var(--muted);margin-bottom:12px;line-height:1.5}
+.ccard .specs .push{margin-top:auto}
+.ccard .specs .addcart{margin-top:14px;background:var(--amber);color:#1c1200;border:none;font-weight:800;font-size:15px;padding:12px;border-radius:12px;cursor:pointer;transition:.15s;width:100%}
+.ccard .specs .addcart:hover{background:var(--amber2);transform:translateY(-1px)}
+/* Счётчик количества на карточке */
+.qtyrow{display:flex;gap:10px;margin-top:14px;align-items:stretch}
+.qtyrow .addcart{margin-top:0;flex:1;width:auto}
+.qty{display:flex;align-items:stretch;border:1.5px solid #d8e0d4;border-radius:12px;overflow:hidden;flex:none;background:#fff}
+.qty button{width:31px;border:none;background:#f2f6ef;color:var(--green);font-size:17px;font-weight:800;cursor:pointer;transition:.15s;padding:0}
+.qty button:hover{background:#e4ecdf;color:var(--amber2)}
+.qty input{width:42px;border:none;text-align:center;font-size:15px;font-weight:800;color:var(--ink);background:#fff;font-family:inherit;appearance:textfield;-moz-appearance:textfield}
+.qty input:focus{outline:none;background:#fdf8ee}
+.qty input::-webkit-outer-spin-button,.qty input::-webkit-inner-spin-button{-webkit-appearance:none;margin:0}
+.cart{font-weight:800;color:var(--green2);font-size:21px;position:relative;display:inline-flex;align-items:center;background:#fdf8ee;border:2px solid var(--amber);border-radius:999px;padding:13px 24px;transition:.15s;box-shadow:0 6px 18px rgba(245,158,11,.35)}
+.cart:hover{color:#1c1200;background:var(--amber);transform:translateY(-1px);box-shadow:0 7px 18px rgba(245,158,11,.42)}
+.cart .cartico{width:44px;height:44px;margin-right:12px;flex:none;display:block}
+.cart b{display:inline-block;background:var(--amber);color:#1c1200;font-size:18px;min-width:38px;height:38px;line-height:38px;text-align:center;border-radius:999px;padding:0 11px;margin-left:14px;box-shadow:0 3px 10px rgba(245,158,11,.6)}
+.cart:hover b{background:#1c1200;color:var(--amber)}
+@media(max-width:420px){ .cart{font-size:18px;padding:10px 16px} .cart .cartico{width:34px;height:34px;margin-right:9px} .cart b{font-size:15px;min-width:30px;height:30px;line-height:30px} }
+
+/* Выезжающая корзина */
+.cartOverlay{position:fixed;inset:0;background:rgba(13,32,22,.45);z-index:80;opacity:0;visibility:hidden;transition:.25s}
+.cartOverlay.open{opacity:1;visibility:visible}
+.cartDrawer{position:fixed;top:0;right:0;bottom:0;width:min(380px,94vw);background:#fff;z-index:90;transform:translateX(105%);transition:transform .32s ease;display:flex;flex-direction:column;box-shadow:-12px 0 40px rgba(0,0,0,.18)}
+.cartDrawer.open{transform:translateX(0)}
+.cdHead{display:flex;justify-content:space-between;align-items:center;padding:18px 20px;border-bottom:1px solid #eaeef0}
+.cdHead b{font-size:19px;color:var(--green)}
+.cdHead button{border:none;background:#eef3ec;width:32px;height:32px;border-radius:10px;cursor:pointer;font-size:14px}
+.cdList{flex:1;overflow-y:auto;padding:10px 20px}
+.cdItem{display:flex;justify-content:space-between;gap:10px;align-items:center;padding:12px 0;border-bottom:1px dashed #e6eae3;font-size:14.5px}
+.cdItem .nm{flex:1;min-width:0}
+.cdItem .cdDel{border:none;background:#fdebec;color:#c0392b;width:26px;height:26px;border-radius:8px;cursor:pointer;flex:none;font-size:12px}
+.cdThumb{position:relative;flex:none;width:28px;height:28px;border:1.5px solid #d8e0d4;border-radius:8px;display:flex;align-items:center;justify-content:center;background:#f8faf6;color:var(--green3);cursor:pointer;transition:.15s}
+.cdThumb:hover{border-color:var(--amber);color:var(--amber2);background:#fdf8ee}
+#cdHover{position:fixed;width:180px;height:180px;background:#fff;border:1px solid #e6eae3;border-radius:14px;box-shadow:0 16px 38px rgba(15,61,46,.25);padding:8px;z-index:95;display:none;pointer-events:none}
+#cdHover img{width:100%;height:100%;object-fit:contain}
+.cdQty{display:flex;align-items:center;gap:4px;flex:none}
+.cdQty button{border:1.5px solid #d8e0d4;background:#f2f6ef;color:var(--green);width:24px;height:24px;border-radius:7px;cursor:pointer;font-size:14px;font-weight:800;line-height:1;padding:0}
+.cdQty button:hover{border-color:var(--amber);color:var(--amber2)}
+.cdQty span{min-width:42px;text-align:center;font-weight:800;font-size:13px;color:var(--ink)}
+.cdTotal{text-align:right;font-size:14px;color:var(--muted);padding-top:10px}
+.cdTotal b{color:var(--green)}
+.cdEmpty{color:var(--muted);text-align:center;padding:44px 12px;font-size:14.5px;line-height:1.6}
+.cdFoot{padding:16px 20px;border-top:1px solid #eaeef0;display:flex;flex-direction:column;gap:10px}
+.btnSend{background:var(--amber);color:#1c1200;border:none;font-weight:800;font-size:15px;padding:14px;border-radius:12px;cursor:pointer;transition:.15s}
+.btnSend:hover{background:var(--amber2)}
+.btnClear{background:transparent;border:1.5px solid #d5ddd2;color:var(--muted);font-weight:700;padding:11px;border-radius:12px;cursor:pointer;font-size:14px}
+.btnClear:hover{border-color:#c0392b;color:#c0392b}
+.cdField{display:flex;flex-direction:column;gap:8px;margin-bottom:10px}
+.cdField input,.cdField textarea{padding:10px 12px;border:1.5px solid #d8e0d4;border-radius:10px;font-size:14px;font-family:inherit;background:#fbfdfb}
+.cdField input:focus,.cdField textarea:focus{outline:none;border-color:var(--green3)}
+.coRadio{display:flex;flex-direction:column;gap:6px;font-size:13.5px}
+.coRadio label{display:flex;gap:8px;align-items:flex-start;cursor:pointer;color:var(--ink)}
+.coRadio input{accent-color:var(--green2);margin-top:2px}
+.cdNote{font-size:12.5px;color:var(--muted);background:#f2f6ef;border-radius:10px;padding:9px 11px;line-height:1.45;margin-bottom:10px}
+  .ccard .tag{position:absolute;top:16px;right:16px;font-size:11px;font-weight:800;letter-spacing:.4px;text-transform:uppercase;border-radius:6px;padding:3px 9px;z-index:2}
+  .tag.new{background:#e7f4ec;color:var(--green3)}
+  .tag.reman{background:#fdeed3;color:var(--amber2)}
+  .ccard b.t{font-size:17.5px;color:var(--green);margin-bottom:4px}
+  .ccard .price{align-self:flex-end;margin-top:auto;background:var(--amber);color:#1c1200;font-weight:800;font-size:17px;padding:8px 16px;border-radius:12px;box-shadow:0 5px 14px rgba(245,158,11,.35);letter-spacing:.2px;line-height:1.2;border:none;cursor:pointer;font-family:inherit;display:inline-flex;align-items:center;gap:8px;transition:.15s}
+  .ccard .price:hover{background:var(--amber2);transform:translateY(-1px);box-shadow:0 7px 18px rgba(245,158,11,.5)}
+  .ccard .price .bk{font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.9px;color:rgba(28,18,0,.72)}
+
+  /* Всплывающее сообщение после «Купить» */
+  .buyPop{position:fixed;left:50%;bottom:26px;transform:translateX(-50%) translateY(18px);background:#fff;border:1px solid #e6eae3;border-radius:16px;box-shadow:0 18px 44px rgba(15,61,46,.28);padding:16px 18px;z-index:100;display:flex;flex-direction:column;gap:11px;min-width:290px;max-width:92vw;opacity:0;visibility:hidden;transition:.22s}
+  .buyPop.open{opacity:1;visibility:visible;transform:translateX(-50%) translateY(0)}
+  .buyPop .bmsg{font-weight:700;font-size:14.5px;color:var(--ink);line-height:1.35}
+  .buyPop .brow{display:flex;gap:9px}
+  .buyPop button{flex:1;padding:11px 12px;border-radius:11px;font-size:14px;font-weight:800;cursor:pointer;font-family:inherit;transition:.15s}
+  .buyPop .bgo{background:var(--amber);color:#1c1200;border:none}
+  .buyPop .bgo:hover{background:var(--amber2)}
+  .buyPop .bcont{background:#eef3ec;color:var(--green);border:1.5px solid #d8e0d4}
+  .buyPop .bcont:hover{border-color:var(--green3)}
+  .ccard .app{font-size:13px;font-weight:700;color:var(--amber2);margin-bottom:8px}
+  .ccard p{font-size:14px;color:var(--muted);flex:1;margin-bottom:14px}
+  .ccard .go{font-weight:800;font-size:14.5px;color:var(--green3)}
+  .ccard:hover .go{color:var(--amber2)}
+
+  .ctastrip{background:var(--green2);color:#fff;border-radius:18px;padding:28px;display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap;margin:36px 0}
+  .ctastrip b{font-size:20px;display:block;margin-bottom:4px}
+  .ctastrip span{color:#cfe3d3;font-size:14.5px}
+
+  footer{background:var(--green);color:#b9cfbf;padding:30px 0;font-size:14px;margin-top:50px}
+  footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;align-items:center}
+  footer a{color:#fff;font-weight:600}
+  footer a:hover{color:var(--amber)}
+
+  .tag.order{background:#e9eef5;color:#3b5b7a}
+  .price.nocost{background:var(--green2);color:#fff;box-shadow:0 5px 14px rgba(15,61,46,.28)}
+  .price.nocost:hover{background:var(--green3)}
+  .searchbar{margin-left:auto;display:flex;align-items:center;gap:8px;background:#fff;border:1.5px solid #d5ddd2;border-radius:999px;padding:7px 16px}
+  .searchbar input{border:none;outline:none;font-family:inherit;font-size:14px;color:var(--ink);width:210px;background:transparent}
+  .searchbar input::placeholder{color:#9aa79f}
+  .searchbar svg{flex:none;color:var(--muted)}
+  .found{font-size:13.5px;color:var(--muted);padding:0 0 6px}
+  .nores{display:none;text-align:center;padding:60px 20px;color:var(--muted)}
+  .nores b{display:block;font-size:20px;color:var(--green);margin-bottom:8px}
+  @media(max-width:640px){ .searchbar{margin-left:0;width:100%} .searchbar input{width:100%} }
+  .cathead{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;padding:34px 0 0}
+  .cathead h2{font-size:22px;color:var(--green)}
+  .cathead span{font-size:13.5px;color:var(--muted)}
+
+  /* ===== Тележка покачивается каждые 3,2 с ===== */
+  @keyframes akCartRoll{0%,70%{transform:translateX(0)}78%{transform:translateX(2px)}84%{transform:translateX(-2px)}91%{transform:translateX(1px)}100%{transform:translateX(0)}}
+  .cartico{animation:akCartRoll 3.2s ease-in-out infinite}
+  @media(prefers-reduced-motion:reduce){ .cartico{animation:none} }
+</style>
+</head>
+<body>
+
+<!-- Напоминание: заменить +7 928 880-73-35 и номер в ссылках wa.me/79288807335 на реальные -->
+
+<div class="topbar">
+  <div class="wrap">
+    <div>📍 Краснодарский край · склад запчастей · <b>отгрузка в день заказа</b></div>
+    <div><a href="tel:+79288807335"><b>+7 928 880-73-35</b></a></div>
+  </div>
+</div>
+
+<header>
+  <div class="wrap nav">
+    <a class="logo" href="index.html">АгроКлимат<span>23</span><small>климат спецтехники · Кубань</small></a>
+    <div style="display:flex;gap:20px;align-items:center">
+      <a class="cart" id="cartBtn" href="#"><img class="cartico" src="images/cart-icon.png" alt="" width="44" height="44">Корзина<b id="cartCount">0</b></a>
+      <a class="back" href="index.html">← На главную</a>
+    </div>
+  </div>
+</header>
+
+<div class="wrap crumbs"><a href="index.html">Главная</a> / Запчасти со склада</div>
+
+<div class="wrap pagehead">
+  <div class="kicker">Склад в Краснодарском крае · отгрузка день в день</div>
+  <h1>Запчасти со склада</h1>
+  <p>Компрессоры, ремкомплекты, шланги, теплообменники, расходники и автономные отопители для комбайнов, тракторов и дорожной техники. Не нашли позицию или нужна деталь под конкретную машину — пришлите фото шильдика, подберём за 30 минут.</p>
+</div>
+
+<div class="wrap" style="margin-top:18px">
+  <div class="cdNote" style="margin:0">💡 <b>Цены ориентировочные</b> — менеджер подтвердит актуальную стоимость и наличие перед отгрузкой. Добавьте позиции в корзину, и мы выставим счёт или пришлём подтверждение в WhatsApp.</div>
+</div>
+
+<div class="wrap filters">
+  <button class="chip active" data-f="all">Всё</button>
+  <button class="chip" data-f="compressors">Компрессоры</button>
+  <button class="chip" data-f="electric">Электрические компрессоры</button>
+  <button class="chip" data-f="cmpparts">Запчасти к компрессорам</button>
+  <button class="chip" data-f="hoses">Шланги и фитинги</button>
+  <button class="chip" data-f="heat">Теплообменники и осушители</button>
+  <button class="chip" data-f="consum">Расходники</button>
+  <button class="chip" data-f="heaters">Отопители</button>
+  <button class="chip" data-f="electro">Электрика и управление</button>
+  <div class="searchbar">
+    <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+    <input id="q" type="search" placeholder="Поиск по каталогу: 5H14, фреон, ТРВ…">
+  </div>
+</div>
+
+<div class="wrap">
+  <div class="found" id="found"></div>
+  <div class="grid" id="grid">
+
+    <a class="ccard drop" data-cat="compressors" href="https://wa.me/79288807335?text=%D0%98%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D0%B5%D1%82%20%D0%BA%D0%BE%D0%BC%D0%BF%D1%80%D0%B5%D1%81%D1%81%D0%BE%D1%80%20Sanden%205H14%20%28%D0%B0%D0%BD%D0%B0%D0%BB%D0%BE%D0%B3%29" target="_blank" rel="noopener">
+      <span class="tag new">Ходовой</span>
+      <div class="pic car">
+        <div class="track">
+            <img src="images/sd5h14-1.jpg" alt="Компрессор Sanden 5H14 (аналог) — фото 1">
+            <img src="images/sd5h14-2.jpg" alt="Компрессор Sanden 5H14 (аналог) — фото 2">
+            <img src="images/sd5h14-3.jpg" alt="Компрессор Sanden 5H14 (аналог) — фото 3">
+            <img src="images/sd5h14-4.jpg" alt="Компрессор Sanden 5H14 (аналог) — фото 4">
+            <img src="images/sd5h14-5.jpg" alt="Компрессор Sanden 5H14 (аналог) — фото 5">
+        </div>
+        <button class="cnav prev" type="button" aria-label="Предыдущее фото">‹</button>
+        <button class="cnav next" type="button" aria-label="Следующее фото">›</button>
+        <div class="dots"><i class="on"></i><i></i><i></i><i></i><i></i></div>
+      </div>
+      <b class="t">Компрессор Sanden 5H14 (аналог)</b>
+      <button type="button" class="price buybtn" data-item="Компрессор Sanden 5H14 (аналог)" data-img="images/sd5h14-1.jpg"><span class="bk">Купить</span> 18 000 ₽</button>
+      <div class="specs">
+        <div class="stitle">Компрессор Sanden 5H14 (аналог)</div>
+        <div class="savail">● В наличии на складе</div>
+        <div class="shead">Характеристики</div>
+        <div class="row"><span>Модель</span><b>аналог Sanden 5H14</b></div><div class="row"><span>Напряжение</span><b>12 В</b></div><div class="row"><span>Хладагент</span><b>R134a</b></div><div class="row"><span>Тип масла</span><b>PAG 46</b></div><div class="row"><span>Объём масла</span><b>135 мл</b></div><div class="row"><span>Профиль шкива</span><b>PV8</b></div><div class="row"><span>Диаметр шкива</span><b>119 мм</b></div><div class="row"><span>Число цилиндров</span><b>5</b></div><div class="row"><span>Объём цилиндров</span><b>138 см³</b></div><div class="row"><span>Гарантия</span><b>12 мес.</b></div>
+        <div class="shint">Пришлите фото шильдика — подберём точный аналог</div>
+        <div class="qtyrow">
+          <div class="qty">
+            <button type="button" class="qm" aria-label="Уменьшить">−</button>
+            <input type="number" class="qv" value="1" min="1" max="999" inputmode="numeric">
+            <button type="button" class="qp" aria-label="Увеличить">+</button>
+          </div>
+          <button type="button" class="addcart" data-item="Компрессор Sanden 5H14 (аналог)" data-img="images/sd5h14-1.jpg">В корзину</button>
+        </div>
+      </div>
+    </a>
+
+    <a class="ccard drop" data-cat="compressors" href="https://wa.me/79288807335?text=%D0%98%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D0%B5%D1%82%20%D0%BA%D0%BE%D0%BC%D0%BF%D1%80%D0%B5%D1%81%D1%81%D0%BE%D1%80%20%D0%BA%D0%BE%D0%BD%D0%B4%D0%B8%D1%86%D0%B8%D0%BE%D0%BD%D0%B5%D1%80%D0%B0%20CUMMINS%2024V%208PK" target="_blank" rel="noopener">
+      <span class="tag new">В наличии</span>
+      <div class="pic car">
+        <div class="track">
+            <img src="images/compressor-5h11-1.jpg" alt="Компрессор CUMMINS 24 В 8PK — фото 1">
+            <img src="images/compressor-5h11-2.jpg" alt="Компрессор CUMMINS 24 В 8PK — фото 2">
+            <img src="images/compressor-5h11-3.jpg" alt="Компрессор CUMMINS 24 В 8PK — фото 3">
+            <img src="images/compressor-5h11-4.jpg" alt="Компрессор CUMMINS 24 В 8PK — фото 4">
+        </div>
+        <button class="cnav prev" type="button" aria-label="Предыдущее фото">‹</button>
+        <button class="cnav next" type="button" aria-label="Следующее фото">›</button>
+        <div class="dots"><i class="on"></i><i></i><i></i><i></i></div>
+      </div>
+      <b class="t">Компрессор CUMMINS 24 В 8PK</b>
+      <button type="button" class="price buybtn" data-item="Компрессор CUMMINS 24 В 8PK" data-img="images/compressor-5h11-1.jpg"><span class="bk">Купить</span> 20 000 ₽</button>
+      <div class="specs">
+        <div class="stitle">Компрессор CUMMINS 24 В 8PK</div>
+        <div class="savail">● В наличии на складе</div>
+        <div class="shead">Характеристики</div>
+        <div class="row"><span>Напряжение питания</span><b>24 В</b></div><div class="row"><span>Хладагент</span><b>R134a</b></div><div class="row"><span>Тип масла</span><b>PAG 46</b></div><div class="row"><span>Объём масла</span><b>150 мл</b></div><div class="row"><span>Диаметр шкива</span><b>119 мм</b></div><div class="row"><span>Профиль шкива</span><b>8PK</b></div><div class="row"><span>Посадочное место В2</span><b>38,5 мм</b></div><div class="row"><span>Длина корпуса</span><b>215 мм</b></div><div class="row"><span>Гарантия</span><b>12 мес.</b></div>
+        <div class="shint">Габаритный чертёж — в галерее фото</div>
+        <div class="qtyrow">
+          <div class="qty">
+            <button type="button" class="qm" aria-label="Уменьшить">−</button>
+            <input type="number" class="qv" value="1" min="1" max="999" inputmode="numeric">
+            <button type="button" class="qp" aria-label="Увеличить">+</button>
+          </div>
+          <button type="button" class="addcart" data-item="Компрессор CUMMINS 24 В 8PK" data-img="images/compressor-5h11-1.jpg">В корзину</button>
+        </div>
+      </div>
+    </a>
+
+    <a class="ccard drop" data-cat="compressors" href="https://wa.me/79288807335?text=%D0%98%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D0%B5%D1%82%20%D0%BA%D0%BE%D0%BC%D0%BF%D1%80%D0%B5%D1%81%D1%81%D0%BE%D1%80%20Denso%2010PA%20/%2010S" target="_blank" rel="noopener">
+      <span class="tag order">Импорт</span>
+      <div class="pic"><img src="images/compressor-mtz.jpg" alt="Компрессор Denso 10PA / 10S"></div>
+      <b class="t">Компрессор Denso 10PA / 10S</b>
+      <div class="app">John Deere · Claas · New Holland · JCB</div>
+      <button type="button" class="price buybtn" data-item="Компрессор Denso 10PA / 10S" data-img="images/compressor-mtz.jpg"><span class="bk">Купить</span> от 24 000 ₽</button>
+      <div class="specs">
+        <div class="stitle">Компрессор Denso 10PA / 10S</div>
+        <div class="savail">● Под заказ, 2–5 дней</div>
+        <div class="shead">Характеристики</div>
+        <div class="row"><span>Тип</span><b>аксиально-поршневой</b></div><div class="row"><span>Напряжение</span><b>12 / 24 В</b></div><div class="row"><span>Хладагент</span><b>R134a</b></div><div class="row"><span>Тип масла</span><b>PAG 46</b></div><div class="row"><span>Применяемость</span><b>импортные комбайны и тракторы</b></div><div class="row"><span>Исполнение</span><b>оригинал / аналог</b></div><div class="row"><span>Гарантия</span><b>12 мес.</b></div>
+        <div class="shint">Штатный агрегат большинства импортных машин</div>
+        <div class="qtyrow">
+          <div class="qty">
+            <button type="button" class="qm" aria-label="Уменьшить">−</button>
+            <input type="number" class="qv" value="1" min="1" max="999" inputmode="numeric">
+            <button type="button" class="qp" aria-label="Увеличить">+</button>
+          </div>
+          <button type="button" class="addcart" data-item="Компрессор Denso 10PA / 10S" data-img="images/compressor-mtz.jpg">В корзину</button>
+        </div>
+      </div>
+    </a>
+
+    <a class="ccard drop" data-cat="compressors" href="https://wa.me/79288807335?text=%D0%98%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D1%8E%D1%82%20%D0%B2%D0%BE%D1%81%D1%81%D1%82%D0%B0%D0%BD%D0%BE%D0%B2%D0%BB%D0%B5%D0%BD%D0%BD%D1%8B%D0%B5%20%D0%BA%D0%BE%D0%BC%D0%BF%D1%80%D0%B5%D1%81%D1%81%D0%BE%D1%80%D1%8B%20%28trade-in%29" target="_blank" rel="noopener">
+      <span class="tag reman">Trade-in −40%</span>
+      <div class="pic"><img src="images/compressors-shop.jpg" alt="Восстановленный компрессор (trade-in)"></div>
+      <b class="t">Восстановленный компрессор (trade-in)</b>
+      <div class="app">Любые популярные модели</div>
+      <button type="button" class="price buybtn" data-item="Восстановленный компрессор (trade-in)" data-img="images/compressors-shop.jpg"><span class="bk">Купить</span> от 12 000 ₽</button>
+      <div class="specs">
+        <div class="stitle">Восстановленный компрессор (trade-in)</div>
+        <div class="savail">● В наличии на складе</div>
+        <div class="shead">Характеристики</div>
+        <div class="row"><span>Состояние</span><b>полная переборка</b></div><div class="row"><span>Проверка</span><b>стенд, протокол</b></div><div class="row"><span>Гарантия</span><b>до 12 мес.</b></div><div class="row"><span>Ваш агрегат</span><b>в зачёт стоимости</b></div><div class="row"><span>Срок</span><b>1–2 дня</b></div>
+        <div class="shint">Полная переборка в нашем цеху, гарантия до 12 месяцев</div>
+        <div class="qtyrow">
+          <div class="qty">
+            <button type="button" class="qm" aria-label="Уменьшить">−</button>
+            <input type="number" class="qv" value="1" min="1" max="999" inputmode="numeric">
+            <button type="button" class="qp" aria-label="Увеличить">+</button>
+          </div>
+          <button type="button" class="addcart" data-item="Восстановленный компрессор (trade-in)" data-img="images/compressors-shop.jpg">В корзину</button>
+        </div>
+      </div>
+    </a>
+
+    <a class="ccard drop" data-cat="electric" href="https://wa.me/79288807335?text=%D0%98%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D0%B5%D1%82%20%D1%8D%D0%BB%D0%B5%D0%BA%D1%82%D1%80%D0%B8%D1%87%D0%B5%D1%81%D0%BA%D0%B8%D0%B9%20%D0%BA%D0%BE%D0%BC%D0%BF%D1%80%D0%B5%D1%81%D1%81%D0%BE%D1%80%2012/24%20%D0%92" target="_blank" rel="noopener">
+      <div class="pic"><img src="images/electric-compressors.jpg" alt="Электрический компрессор 12 / 24 В в сборе"></div>
+      <b class="t">Электрический компрессор 12 / 24 В в сборе</b>
+      <button type="button" class="price buybtn" data-item="Электрический компрессор 12 / 24 В в сборе" data-img="images/electric-compressors.jpg"><span class="bk">Купить</span> 34 000 ₽</button>
+      <div class="specs">
+        <div class="stitle">Электрический компрессор 12 / 24 В в сборе</div>
+        <div class="savail">● В наличии на складе</div>
+        <div class="shead">Характеристики</div>
+        <div class="row"><span>Питание</span><b>12 / 24 В</b></div><div class="row"><span>Хладагент</span><b>R134a</b></div><div class="row"><span>Тип масла</span><b>PAG 46</b></div><div class="row"><span>Привод</span><b>электрический, без отбора мощности</b></div><div class="row"><span>Комплект</span><b>компрессор + контроллер + коса</b></div><div class="row"><span>Установка</span><b>под ключ в нашем цеху</b></div><div class="row"><span>Гарантия</span><b>12 мес.</b></div>
+        <div class="shint">Ставится там, куда механический привод не вывести</div>
+        <div class="qtyrow">
+          <div class="qty">
+            <button type="button" class="qm" aria-label="Уменьшить">−</button>
+            <input type="number" class="qv" value="1" min="1" max="999" inputmode="numeric">
+            <button type="button" class="qp" aria-label="Увеличить">+</button>
+          </div>
+          <button type="button" class="addcart" data-item="Электрический компрессор 12 / 24 В в сборе" data-img="images/electric-compressors.jpg">В корзину</button>
+        </div>
+      </div>
+    </a>
+
+    <a class="ccard drop" data-cat="electric" href="https://wa.me/79288807335?text=%D0%98%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D0%B5%D1%82%20%D0%BA%D0%BE%D0%BC%D0%BF%D0%BB%D0%B5%D0%BA%D1%82%20%D1%8D%D0%BB%D0%B5%D0%BA%D1%82%D1%80%D0%B8%D1%87%D0%B5%D1%81%D0%BA%D0%BE%D0%B3%D0%BE%20%D0%BA%D0%BE%D0%BD%D0%B4%D0%B8%D1%86%D0%B8%D0%BE%D0%BD%D0%B5%D1%80%D0%B0%20%D0%BF%D0%BE%D0%B4%20%D0%BA%D0%BB%D1%8E%D1%87" target="_blank" rel="noopener">
+      <div class="pic"><img src="images/electric-compressors.jpg" alt="Комплект электрического климата «под ключ»"></div>
+      <b class="t">Комплект электрического климата «под ключ»</b>
+      <button type="button" class="price buybtn" data-item="Комплект электрического климата «под ключ»" data-img="images/electric-compressors.jpg"><span class="bk">Купить</span> от 58 000 ₽</button>
+      <div class="specs">
+        <div class="stitle">Комплект электрического климата «под ключ»</div>
+        <div class="savail">● Под заказ, 3–7 дней</div>
+        <div class="shead">Характеристики</div>
+        <div class="row"><span>Состав</span><b>компрессор, конденсор, испаритель, коса</b></div><div class="row"><span>Питание</span><b>12 / 24 В</b></div><div class="row"><span>Монтаж</span><b>нашим выездом или в цеху</b></div><div class="row"><span>Техника</span><b>кабины без отбора мощности</b></div><div class="row"><span>Гарантия</span><b>12 мес.</b></div>
+        <div class="shint">Полный комплект с монтажом — считаем под вашу машину</div>
+        <div class="qtyrow">
+          <div class="qty">
+            <button type="button" class="qm" aria-label="Уменьшить">−</button>
+            <input type="number" class="qv" value="1" min="1" max="999" inputmode="numeric">
+            <button type="button" class="qp" aria-label="Увеличить">+</button>
+          </div>
+          <button type="button" class="addcart" data-item="Комплект электрического климата «под ключ»" data-img="images/electric-compressors.jpg">В корзину</button>
+        </div>
+      </div>
+    </a>
+
+    <a class="ccard drop" data-cat="cmpparts" href="https://wa.me/79288807335?text=%D0%98%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D0%B5%D1%82%20%D0%BC%D1%83%D1%84%D1%82%D0%B0%20%D1%8D%D0%BB%D0%B5%D0%BA%D1%82%D1%80%D0%BE%D0%BC%D0%B0%D0%B3%D0%BD%D0%B8%D1%82%D0%BD%D0%B0%D1%8F%20%D0%BA%D0%BE%D0%BC%D0%BF%D1%80%D0%B5%D1%81%D1%81%D0%BE%D1%80%D0%B0%208PK%20119" target="_blank" rel="noopener">
+      <div class="pic"><img src="images/compressor-parts.jpg" alt="Муфта электромагнитная в сборе 8PK Ø119"></div>
+      <b class="t">Муфта электромагнитная в сборе 8PK Ø119</b>
+      <button type="button" class="price buybtn" data-item="Муфта электромагнитная в сборе 8PK Ø119" data-img="images/compressor-parts.jpg"><span class="bk">Купить</span> 6 500 ₽</button>
+      <div class="specs">
+        <div class="stitle">Муфта электромагнитная в сборе 8PK Ø119</div>
+        <div class="savail">● В наличии на складе</div>
+        <div class="shead">Характеристики</div>
+        <div class="row"><span>Профиль шкива</span><b>8PK</b></div><div class="row"><span>Диаметр шкива</span><b>119 мм</b></div><div class="row"><span>Напряжение катушки</span><b>12 / 24 В</b></div><div class="row"><span>В комплекте</span><b>шкив, катушка, прижимная пластина</b></div><div class="row"><span>Применяемость</span><b>Sanden 5H14, CUMMINS и аналоги</b></div>
+        <div class="shint">Меняем в цеху — обычно дешевле, чем агрегат целиком</div>
+        <div class="qtyrow">
+          <div class="qty">
+            <button type="button" class="qm" aria-label="Уменьшить">−</button>
+            <input type="number" class="qv" value="1" min="1" max="999" inputmode="numeric">
+            <button type="button" class="qp" aria-label="Увеличить">+</button>
+          </div>
+          <button type="button" class="addcart" data-item="Муфта электромагнитная в сборе 8PK Ø119" data-img="images/compressor-parts.jpg">В корзину</button>
+        </div>
+      </div>
+    </a>
+
+    <a class="ccard drop" data-cat="cmpparts" href="https://wa.me/79288807335?text=%D0%98%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D0%B5%D1%82%20%D1%80%D0%B5%D0%BC%D0%BA%D0%BE%D0%BC%D0%BF%D0%BB%D0%B5%D0%BA%D1%82%20%D0%BA%D0%BB%D0%B0%D0%BF%D0%B0%D0%BD%D0%BD%D0%BE%D0%B9%20%D0%BF%D0%BB%D0%B8%D1%82%D1%8B%205H14" target="_blank" rel="noopener">
+      <div class="pic"><img src="images/compressor-parts.jpg" alt="Ремкомплект клапанной плиты 5H14"></div>
+      <b class="t">Ремкомплект клапанной плиты 5H14</b>
+      <button type="button" class="price buybtn" data-item="Ремкомплект клапанной плиты 5H14" data-img="images/compressor-parts.jpg"><span class="bk">Купить</span> 3 200 ₽</button>
+      <div class="specs">
+        <div class="stitle">Ремкомплект клапанной плиты 5H14</div>
+        <div class="savail">● В наличии на складе</div>
+        <div class="shead">Характеристики</div>
+        <div class="row"><span>Применяемость</span><b>Sanden 5H14 и аналоги</b></div><div class="row"><span>Состав</span><b>пластины, пружины, прокладки</b></div><div class="row"><span>Назначение</span><b>восстановление компрессии</b></div><div class="row"><span>Срок поставки</span><b>в наличии</b></div>
+        <div class="shint">Вернёт холод, если корпус и вал без износа</div>
+        <div class="qtyrow">
+          <div class="qty">
+            <button type="button" class="qm" aria-label="Уменьшить">−</button>
+            <input type="number" class="qv" value="1" min="1" max="999" inputmode="numeric">
+            <button type="button" class="qp" aria-label="Увеличить">+</button>
+          </div>
+          <button type="button" class="addcart" data-item="Ремкомплект клапанной плиты 5H14" data-img="images/compressor-parts.jpg">В корзину</button>
+        </div>
+      </div>
+    </a>
+
+    <a class="ccard drop" data-cat="cmpparts" href="https://wa.me/79288807335?text=%D0%98%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D0%B5%D1%82%20%D0%BF%D0%BE%D0%B4%D1%88%D0%B8%D0%BF%D0%BD%D0%B8%D0%BA%20%D1%88%D0%BA%D0%B8%D0%B2%D0%B0%20%D0%BA%D0%BE%D0%BC%D0%BF%D1%80%D0%B5%D1%81%D1%81%D0%BE%D1%80%D0%B0" target="_blank" rel="noopener">
+      <div class="pic"><img src="images/compressor-parts.jpg" alt="Подшипник шкива компрессора"></div>
+      <b class="t">Подшипник шкива компрессора</b>
+      <button type="button" class="price buybtn" data-item="Подшипник шкива компрессора" data-img="images/compressor-parts.jpg"><span class="bk">Купить</span> 1 400 ₽</button>
+      <div class="specs">
+        <div class="stitle">Подшипник шкива компрессора</div>
+        <div class="savail">● В наличии на складе</div>
+        <div class="shead">Характеристики</div>
+        <div class="row"><span>Тип</span><b>двухрядный радиально-упорный</b></div><div class="row"><span>Применяемость</span><b>5H14, 7H15, 10PA</b></div><div class="row"><span>Ресурс</span><b>паспортный</b></div><div class="row"><span>Установка</span><b>в нашем цеху</b></div>
+        <div class="shint">Гул и свист при включении — почти всегда он</div>
+        <div class="qtyrow">
+          <div class="qty">
+            <button type="button" class="qm" aria-label="Уменьшить">−</button>
+            <input type="number" class="qv" value="1" min="1" max="999" inputmode="numeric">
+            <button type="button" class="qp" aria-label="Увеличить">+</button>
+          </div>
+          <button type="button" class="addcart" data-item="Подшипник шкива компрессора" data-img="images/compressor-parts.jpg">В корзину</button>
+        </div>
+      </div>
+    </a>
+
+    <a class="ccard drop" data-cat="cmpparts" href="https://wa.me/79288807335?text=%D0%98%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D1%8E%D1%82%20%D1%81%D0%B0%D0%BB%D1%8C%D0%BD%D0%B8%D0%BA%20%D0%B2%D0%B0%D0%BB%D0%B0%20%D0%B8%20%D0%BA%D0%BE%D0%BC%D0%BF%D0%BB%D0%B5%D0%BA%D1%82%20%D1%83%D0%BF%D0%BB%D0%BE%D1%82%D0%BD%D0%B5%D0%BD%D0%B8%D0%B9%20%D0%BA%D0%BE%D0%BC%D0%BF%D1%80%D0%B5%D1%81%D1%81%D0%BE%D1%80%D0%B0" target="_blank" rel="noopener">
+      <div class="pic"><img src="images/compressor-parts.jpg" alt="Сальник вала и комплект уплотнений"></div>
+      <b class="t">Сальник вала и комплект уплотнений</b>
+      <button type="button" class="price buybtn" data-item="Сальник вала и комплект уплотнений" data-img="images/compressor-parts.jpg"><span class="bk">Купить</span> 980 ₽</button>
+      <div class="specs">
+        <div class="stitle">Сальник вала и комплект уплотнений</div>
+        <div class="savail">● В наличии на складе</div>
+        <div class="shead">Характеристики</div>
+        <div class="row"><span>Состав</span><b>сальник вала, кольца, прокладки</b></div><div class="row"><span>Материал</span><b>маслостойкий NBR / HNBR</b></div><div class="row"><span>Совместимость</span><b>масла PAG 46 / PAG 100</b></div><div class="row"><span>Назначение</span><b>устранение утечки по валу</b></div>
+        <div class="shint">Масляные потёки на носовой части — менять сразу</div>
+        <div class="qtyrow">
+          <div class="qty">
+            <button type="button" class="qm" aria-label="Уменьшить">−</button>
+            <input type="number" class="qv" value="1" min="1" max="999" inputmode="numeric">
+            <button type="button" class="qp" aria-label="Увеличить">+</button>
+          </div>
+          <button type="button" class="addcart" data-item="Сальник вала и комплект уплотнений" data-img="images/compressor-parts.jpg">В корзину</button>
+        </div>
+      </div>
+    </a>
+
+    <a class="ccard drop" data-cat="hoses" href="https://wa.me/79288807335?text=%D0%98%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D1%8E%D1%82%20%D1%88%D0%BB%D0%B0%D0%BD%D0%B3%D0%B8%20%D0%BA%D0%BE%D0%BD%D0%B4%D0%B8%D1%86%D0%B8%D0%BE%D0%BD%D0%B5%D1%80%D0%B0%20%D0%B2%20%D1%81%D0%B1%D0%BE%D1%80%D0%B5%20R134a" target="_blank" rel="noopener">
+      <div class="pic"><img src="images/hoses-fittings.jpg" alt="Шланг R134a в сборе (обжим по образцу)"></div>
+      <b class="t">Шланг R134a в сборе (обжим по образцу)</b>
+      <button type="button" class="price buybtn" data-item="Шланг R134a в сборе (обжим по образцу)" data-img="images/hoses-fittings.jpg"><span class="bk">Купить</span> 2 400 ₽</button>
+      <div class="specs">
+        <div class="stitle">Шланг R134a в сборе (обжим по образцу)</div>
+        <div class="savail">● В наличии на складе</div>
+        <div class="shead">Характеристики</div>
+        <div class="row"><span>Рабочее давление</span><b>до 35 бар</b></div><div class="row"><span>Хладагент</span><b>R134a</b></div><div class="row"><span>Длина</span><b>по образцу или мерке</b></div><div class="row"><span>Фитинги</span><b>под вашу магистраль</b></div><div class="row"><span>Срок изготовления</span><b>от 30 минут</b></div>
+        <div class="shint">Принесите старый шланг — повторим точь-в-точь</div>
+        <div class="qtyrow">
+          <div class="qty">
+            <button type="button" class="qm" aria-label="Уменьшить">−</button>
+            <input type="number" class="qv" value="1" min="1" max="999" inputmode="numeric">
+            <button type="button" class="qp" aria-label="Увеличить">+</button>
+          </div>
+          <button type="button" class="addcart" data-item="Шланг R134a в сборе (обжим по образцу)" data-img="images/hoses-fittings.jpg">В корзину</button>
+        </div>
+      </div>
+    </a>
+
+    <a class="ccard drop" data-cat="hoses" href="https://wa.me/79288807335?text=%D0%98%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D1%8E%D1%82%20%D1%84%D0%B8%D1%82%D0%B8%D0%BD%D0%B3%D0%B8%20%D0%B8%20%D0%BF%D0%B5%D1%80%D0%B5%D1%85%D0%BE%D0%B4%D0%BD%D0%B8%D0%BA%D0%B8%20%D0%B4%D0%BB%D1%8F%20%D0%BC%D0%B0%D0%B3%D0%B8%D1%81%D1%82%D1%80%D0%B0%D0%BB%D0%B5%D0%B9%20%D0%BA%D0%BE%D0%BD%D0%B4%D0%B8%D1%86%D0%B8%D0%BE%D0%BD%D0%B5%D1%80%D0%B0" target="_blank" rel="noopener">
+      <div class="pic"><img src="images/hoses-fittings.jpg" alt="Фитинги и переходники для магистралей"></div>
+      <b class="t">Фитинги и переходники для магистралей</b>
+      <button type="button" class="price buybtn" data-item="Фитинги и переходники для магистралей" data-img="images/hoses-fittings.jpg"><span class="bk">Купить</span> от 350 ₽</button>
+      <div class="specs">
+        <div class="stitle">Фитинги и переходники для магистралей</div>
+        <div class="savail">● В наличии на складе</div>
+        <div class="shead">Характеристики</div>
+        <div class="row"><span>Тип резьбы</span><b>7/8-14UNF, 3/4-16UNF, метрическая</b></div><div class="row"><span>Материал</span><b>сталь / алюминий</b></div><div class="row"><span>Назначение</span><b>переход на другой компрессор</b></div><div class="row"><span>Подбор</span><b>по вашему узлу</b></div>
+        <div class="shint">Помогаем состыковать новый агрегат со старой магистралью</div>
+        <div class="qtyrow">
+          <div class="qty">
+            <button type="button" class="qm" aria-label="Уменьшить">−</button>
+            <input type="number" class="qv" value="1" min="1" max="999" inputmode="numeric">
+            <button type="button" class="qp" aria-label="Увеличить">+</button>
+          </div>
+          <button type="button" class="addcart" data-item="Фитинги и переходники для магистралей" data-img="images/hoses-fittings.jpg">В корзину</button>
+        </div>
+      </div>
+    </a>
+
+    <a class="ccard drop" data-cat="hoses" href="https://wa.me/79288807335?text=%D0%98%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D1%8E%D1%82%20%D1%83%D0%BF%D0%BB%D0%BE%D1%82%D0%BD%D0%B8%D1%82%D0%B5%D0%BB%D1%8C%D0%BD%D1%8B%D0%B5%20%D0%BA%D0%BE%D0%BB%D1%8C%D1%86%D0%B0%20O-ring%20%D0%B4%D0%BB%D1%8F%20%D0%BA%D0%BE%D0%BD%D0%B4%D0%B8%D1%86%D0%B8%D0%BE%D0%BD%D0%B5%D1%80%D0%B0" target="_blank" rel="noopener">
+      <div class="pic"><img src="images/consumables.jpg" alt="Набор уплотнительных колец O-ring (100 шт)"></div>
+      <b class="t">Набор уплотнительных колец O-ring (100 шт)</b>
+      <button type="button" class="price buybtn" data-item="Набор уплотнительных колец O-ring (100 шт)" data-img="images/consumables.jpg"><span class="bk">Купить</span> 690 ₽</button>
+      <div class="specs">
+        <div class="stitle">Набор уплотнительных колец O-ring (100 шт)</div>
+        <div class="savail">● В наличии на складе</div>
+        <div class="shead">Характеристики</div>
+        <div class="row"><span>Количество</span><b>100 шт</b></div><div class="row"><span>Типоразмеры</span><b>ходовые для R134a</b></div><div class="row"><span>Материал</span><b>HNBR, маслостойкий</b></div><div class="row"><span>Назначение</span><b>разборка и сборка магистралей</b></div>
+        <div class="shint">Старые кольца повторно не ставим — только новые</div>
+        <div class="qtyrow">
+          <div class="qty">
+            <button type="button" class="qm" aria-label="Уменьшить">−</button>
+            <input type="number" class="qv" value="1" min="1" max="999" inputmode="numeric">
+            <button type="button" class="qp" aria-label="Увеличить">+</button>
+          </div>
+          <button type="button" class="addcart" data-item="Набор уплотнительных колец O-ring (100 шт)" data-img="images/consumables.jpg">В корзину</button>
+        </div>
+      </div>
+    </a>
+
+    <a class="ccard drop" data-cat="heat" href="https://wa.me/79288807335?text=%D0%98%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D0%B5%D1%82%20%D0%BA%D0%BE%D0%BD%D0%B4%D0%B5%D0%BD%D1%81%D0%BE%D1%80%20%D0%BA%D0%BE%D0%BD%D0%B4%D0%B8%D1%86%D0%B8%D0%BE%D0%BD%D0%B5%D1%80%D0%B0%20%D0%BD%D0%B0%20%D1%81%D0%BF%D0%B5%D1%86%D1%82%D0%B5%D1%85%D0%BD%D0%B8%D0%BA%D1%83" target="_blank" rel="noopener">
+      <div class="pic"><img src="images/heat-exchangers.jpg" alt="Конденсор (радиатор кондиционера)"></div>
+      <b class="t">Конденсор (радиатор кондиционера)</b>
+      <button type="button" class="price buybtn" data-item="Конденсор (радиатор кондиционера)" data-img="images/heat-exchangers.jpg"><span class="bk">Купить</span> 14 500 ₽</button>
+      <div class="specs">
+        <div class="stitle">Конденсор (радиатор кондиционера)</div>
+        <div class="savail">● Под заказ, 3–7 дней</div>
+        <div class="shead">Характеристики</div>
+        <div class="row"><span>Тип</span><b>параллельно-поточный, алюминий</b></div><div class="row"><span>Применяемость</span><b>комбайны, тракторы, погрузчики</b></div><div class="row"><span>Подбор</span><b>по марке техники</b></div><div class="row"><span>Комплектация</span><b>с осушителем — уточняйте</b></div><div class="row"><span>Гарантия</span><b>12 мес.</b></div>
+        <div class="shint">Изготовим по образцу, если оригинал снят с производства</div>
+        <div class="qtyrow">
+          <div class="qty">
+            <button type="button" class="qm" aria-label="Уменьшить">−</button>
+            <input type="number" class="qv" value="1" min="1" max="999" inputmode="numeric">
+            <button type="button" class="qp" aria-label="Увеличить">+</button>
+          </div>
+          <button type="button" class="addcart" data-item="Конденсор (радиатор кондиционера)" data-img="images/heat-exchangers.jpg">В корзину</button>
+        </div>
+      </div>
+    </a>
+
+    <a class="ccard drop" data-cat="heat" href="https://wa.me/79288807335?text=%D0%98%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D0%B5%D1%82%20%D0%B8%D1%81%D0%BF%D0%B0%D1%80%D0%B8%D1%82%D0%B5%D0%BB%D1%8C%20%D0%BA%D0%B0%D0%B1%D0%B8%D0%BD%D1%8B%20%D0%BA%D0%BE%D0%BD%D0%B4%D0%B8%D1%86%D0%B8%D0%BE%D0%BD%D0%B5%D1%80%D0%B0" target="_blank" rel="noopener">
+      <div class="pic"><img src="images/heat-exchangers.jpg" alt="Испаритель кабины в сборе"></div>
+      <b class="t">Испаритель кабины в сборе</b>
+      <button type="button" class="price buybtn" data-item="Испаритель кабины в сборе" data-img="images/heat-exchangers.jpg"><span class="bk">Купить</span> 11 000 ₽</button>
+      <div class="specs">
+        <div class="stitle">Испаритель кабины в сборе</div>
+        <div class="savail">● В наличии на складе</div>
+        <div class="shead">Характеристики</div>
+        <div class="row"><span>Тип</span><b>медно-алюминиевый / алюминиевый</b></div><div class="row"><span>Применяемость</span><b>кабины комбайнов и тракторов</b></div><div class="row"><span>В комплекте</span><b>ТРВ — уточняйте</b></div><div class="row"><span>Установка</span><b>в нашем цеху</b></div><div class="row"><span>Гарантия</span><b>12 мес.</b></div>
+        <div class="shint">Частая причина слабого холода — забитый испаритель</div>
+        <div class="qtyrow">
+          <div class="qty">
+            <button type="button" class="qm" aria-label="Уменьшить">−</button>
+            <input type="number" class="qv" value="1" min="1" max="999" inputmode="numeric">
+            <button type="button" class="qp" aria-label="Увеличить">+</button>
+          </div>
+          <button type="button" class="addcart" data-item="Испаритель кабины в сборе" data-img="images/heat-exchangers.jpg">В корзину</button>
+        </div>
+      </div>
+    </a>
+
+    <a class="ccard drop" data-cat="heat" href="https://wa.me/79288807335?text=%D0%98%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D0%B5%D1%82%20%D1%80%D0%B5%D1%81%D0%B8%D0%B2%D0%B5%D1%80-%D0%BE%D1%81%D1%83%D1%88%D0%B8%D1%82%D0%B5%D0%BB%D1%8C%20%D0%BA%D0%BE%D0%BD%D0%B4%D0%B8%D1%86%D0%B8%D0%BE%D0%BD%D0%B5%D1%80%D0%B0" target="_blank" rel="noopener">
+      <div class="pic"><img src="images/drier-txv.jpg" alt="Ресивер-осушитель (фильтр-осушитель)"></div>
+      <b class="t">Ресивер-осушитель (фильтр-осушитель)</b>
+      <button type="button" class="price buybtn" data-item="Ресивер-осушитель (фильтр-осушитель)" data-img="images/drier-txv.jpg"><span class="bk">Купить</span> 2 800 ₽</button>
+      <div class="specs">
+        <div class="stitle">Ресивер-осушитель (фильтр-осушитель)</div>
+        <div class="savail">● В наличии на складе</div>
+        <div class="shead">Характеристики</div>
+        <div class="row"><span>Назначение</span><b>удаление влаги из контура</b></div><div class="row"><span>Менять</span><b>при каждом вскрытии системы</b></div><div class="row"><span>Тип</span><b>патрон / баллон — уточним</b></div><div class="row"><span>Применяемость</span><b>R134a</b></div>
+        <div class="shint">Меняется при каждой разгерметизации — это копейки</div>
+        <div class="qtyrow">
+          <div class="qty">
+            <button type="button" class="qm" aria-label="Уменьшить">−</button>
+            <input type="number" class="qv" value="1" min="1" max="999" inputmode="numeric">
+            <button type="button" class="qp" aria-label="Увеличить">+</button>
+          </div>
+          <button type="button" class="addcart" data-item="Ресивер-осушитель (фильтр-осушитель)" data-img="images/drier-txv.jpg">В корзину</button>
+        </div>
+      </div>
+    </a>
+
+    <a class="ccard drop" data-cat="heat" href="https://wa.me/79288807335?text=%D0%98%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D1%8E%D1%82%20%D0%A2%D0%A0%D0%92%20%D1%82%D0%B5%D1%80%D0%BC%D0%BE%D1%80%D0%B5%D0%B3%D1%83%D0%BB%D0%B8%D1%80%D1%83%D1%8E%D1%89%D0%B8%D0%B9%20%D0%B2%D0%B5%D0%BD%D1%82%D0%B8%D0%BB%D1%8C%20%D0%BA%D0%BE%D0%BD%D0%B4%D0%B8%D1%86%D0%B8%D0%BE%D0%BD%D0%B5%D1%80%D0%B0" target="_blank" rel="noopener">
+      <div class="pic"><img src="images/drier-txv.jpg" alt="ТРВ — терморегулирующий вентиль"></div>
+      <b class="t">ТРВ — терморегулирующий вентиль</b>
+      <button type="button" class="price buybtn" data-item="ТРВ — терморегулирующий вентиль" data-img="images/drier-txv.jpg"><span class="bk">Купить</span> 3 600 ₽</button>
+      <div class="specs">
+        <div class="stitle">ТРВ — терморегулирующий вентиль</div>
+        <div class="savail">● В наличии на складе</div>
+        <div class="shead">Характеристики</div>
+        <div class="row"><span>Тип</span><b>блоковый / вставной</b></div><div class="row"><span>Хладагент</span><b>R134a</b></div><div class="row"><span>Подбор</span><b>по мощности системы</b></div><div class="row"><span>Симптом неисправности</span><b>обмерзание или «нет холода»</b></div><div class="row"><span>Гарантия</span><b>6 мес.</b></div>
+        <div class="shint">Подбираем по производительности испарителя</div>
+        <div class="qtyrow">
+          <div class="qty">
+            <button type="button" class="qm" aria-label="Уменьшить">−</button>
+            <input type="number" class="qv" value="1" min="1" max="999" inputmode="numeric">
+            <button type="button" class="qp" aria-label="Увеличить">+</button>
+          </div>
+          <button type="button" class="addcart" data-item="ТРВ — терморегулирующий вентиль" data-img="images/drier-txv.jpg">В корзину</button>
+        </div>
+      </div>
+    </a>
+
+    <a class="ccard drop" data-cat="heat" href="https://wa.me/79288807335?text=%D0%98%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D0%B5%D1%82%20%D0%B2%D0%B5%D0%BD%D1%82%D0%B8%D0%BB%D1%8F%D1%82%D0%BE%D1%80%20%D0%BA%D0%BE%D0%BD%D0%B4%D0%B5%D0%BD%D1%81%D0%BE%D1%80%D0%B0%20%D0%BA%D0%BE%D0%BD%D0%B4%D0%B8%D1%86%D0%B8%D0%BE%D0%BD%D0%B5%D1%80%D0%B0" target="_blank" rel="noopener">
+      <div class="pic"><img src="images/heat-exchangers.jpg" alt="Вентилятор конденсора 12 / 24 В"></div>
+      <b class="t">Вентилятор конденсора 12 / 24 В</b>
+      <button type="button" class="price buybtn" data-item="Вентилятор конденсора 12 / 24 В" data-img="images/heat-exchangers.jpg"><span class="bk">Купить</span> 4 800 ₽</button>
+      <div class="specs">
+        <div class="stitle">Вентилятор конденсора 12 / 24 В</div>
+        <div class="savail">● В наличии на складе</div>
+        <div class="shead">Характеристики</div>
+        <div class="row"><span>Напряжение</span><b>12 / 24 В</b></div><div class="row"><span>Диаметр</span><b>по месту установки</b></div><div class="row"><span>Производительность</span><b>подбираем под конденсор</b></div><div class="row"><span>Комплектация</span><b>крыльчатка + мотор + кожух</b></div><div class="row"><span>Гарантия</span><b>12 мес.</b></div>
+        <div class="shint">В жару слабый обдув = «кондиционер не холодит»</div>
+        <div class="qtyrow">
+          <div class="qty">
+            <button type="button" class="qm" aria-label="Уменьшить">−</button>
+            <input type="number" class="qv" value="1" min="1" max="999" inputmode="numeric">
+            <button type="button" class="qp" aria-label="Увеличить">+</button>
+          </div>
+          <button type="button" class="addcart" data-item="Вентилятор конденсора 12 / 24 В" data-img="images/heat-exchangers.jpg">В корзину</button>
+        </div>
+      </div>
+    </a>
+
+    <a class="ccard drop" data-cat="consum" href="https://wa.me/79288807335?text=%D0%98%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D0%B5%D1%82%20%D1%84%D1%80%D0%B5%D0%BE%D0%BD%20R134a" target="_blank" rel="noopener">
+      <div class="pic"><img src="images/consumables.jpg" alt="Фреон R134a, баллон 13,6 кг"></div>
+      <b class="t">Фреон R134a, баллон 13,6 кг</b>
+      <button type="button" class="price buybtn" data-item="Фреон R134a, баллон 13,6 кг" data-img="images/consumables.jpg"><span class="bk">Купить</span> 8 900 ₽</button>
+      <div class="specs">
+        <div class="stitle">Фреон R134a, баллон 13,6 кг</div>
+        <div class="savail">● В наличии на складе</div>
+        <div class="shead">Характеристики</div>
+        <div class="row"><span>Хладагент</span><b>R134a</b></div><div class="row"><span>Масса</span><b>13,6 кг</b></div><div class="row"><span>Чистота</span><b>99,9%</b></div><div class="row"><span>Тара</span><b>одноразовый баллон</b></div><div class="row"><span>Наличие</span><b>на складе</b></div>
+        <div class="shint">Заправка системы — только с вакуумированием и по весу</div>
+        <div class="qtyrow">
+          <div class="qty">
+            <button type="button" class="qm" aria-label="Уменьшить">−</button>
+            <input type="number" class="qv" value="1" min="1" max="999" inputmode="numeric">
+            <button type="button" class="qp" aria-label="Увеличить">+</button>
+          </div>
+          <button type="button" class="addcart" data-item="Фреон R134a, баллон 13,6 кг" data-img="images/consumables.jpg">В корзину</button>
+        </div>
+      </div>
+    </a>
+
+    <a class="ccard drop" data-cat="consum" href="https://wa.me/79288807335?text=%D0%98%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D0%B5%D1%82%20%D0%BC%D0%B0%D1%81%D0%BB%D0%BE%20PAG%2046%20%D0%B4%D0%BB%D1%8F%20%D0%BA%D0%BE%D0%BC%D0%BF%D1%80%D0%B5%D1%81%D1%81%D0%BE%D1%80%D0%B0" target="_blank" rel="noopener">
+      <div class="pic"><img src="images/consumables.jpg" alt="Масло для компрессора PAG 46, 1 л"></div>
+      <b class="t">Масло для компрессора PAG 46, 1 л</b>
+      <button type="button" class="price buybtn" data-item="Масло для компрессора PAG 46, 1 л" data-img="images/consumables.jpg"><span class="bk">Купить</span> 1 200 ₽</button>
+      <div class="specs">
+        <div class="stitle">Масло для компрессора PAG 46, 1 л</div>
+        <div class="savail">● В наличии на складе</div>
+        <div class="shead">Характеристики</div>
+        <div class="row"><span>Тип</span><b>PAG 46</b></div><div class="row"><span>Объём</span><b>1 л</b></div><div class="row"><span>Применяемость</span><b>большинство компрессоров R134a</b></div><div class="row"><span>Хранение</span><b>герметичная тара — масло гигроскопично</b></div>
+        <div class="shint">Несовместимо с PAG 100 и POE — уточним по вашему агрегату</div>
+        <div class="qtyrow">
+          <div class="qty">
+            <button type="button" class="qm" aria-label="Уменьшить">−</button>
+            <input type="number" class="qv" value="1" min="1" max="999" inputmode="numeric">
+            <button type="button" class="qp" aria-label="Увеличить">+</button>
+          </div>
+          <button type="button" class="addcart" data-item="Масло для компрессора PAG 46, 1 л" data-img="images/consumables.jpg">В корзину</button>
+        </div>
+      </div>
+    </a>
+
+    <a class="ccard drop" data-cat="consum" href="https://wa.me/79288807335?text=%D0%98%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D1%8E%D1%82%20%D0%BF%D1%80%D0%BE%D0%BC%D1%8B%D0%B2%D0%BA%D0%B0%20%D1%81%D0%B8%D1%81%D1%82%D0%B5%D0%BC%D1%8B%20%D0%BA%D0%BE%D0%BD%D0%B4%D0%B8%D1%86%D0%B8%D0%BE%D0%BD%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D1%8F" target="_blank" rel="noopener">
+      <div class="pic"><img src="images/consumables.jpg" alt="Промывка системы кондиционирования, 1 л"></div>
+      <b class="t">Промывка системы кондиционирования, 1 л</b>
+      <button type="button" class="price buybtn" data-item="Промывка системы кондиционирования, 1 л" data-img="images/consumables.jpg"><span class="bk">Купить</span> 1 100 ₽</button>
+      <div class="specs">
+        <div class="stitle">Промывка системы кондиционирования, 1 л</div>
+        <div class="savail">● В наличии на складе</div>
+        <div class="shead">Характеристики</div>
+        <div class="row"><span>Объём</span><b>1 л</b></div><div class="row"><span>Назначение</span><b>промывка после разрушения компрессора</b></div><div class="row"><span>Способ</span><b>продувка азотом после промывки</b></div><div class="row"><span>Обязательно</span><b>менять осушитель</b></div>
+        <div class="shint">После «смерти» компрессора система промывается обязательно</div>
+        <div class="qtyrow">
+          <div class="qty">
+            <button type="button" class="qm" aria-label="Уменьшить">−</button>
+            <input type="number" class="qv" value="1" min="1" max="999" inputmode="numeric">
+            <button type="button" class="qp" aria-label="Увеличить">+</button>
+          </div>
+          <button type="button" class="addcart" data-item="Промывка системы кондиционирования, 1 л" data-img="images/consumables.jpg">В корзину</button>
+        </div>
+      </div>
+    </a>
+
+    <a class="ccard drop" data-cat="consum" href="https://wa.me/79288807335?text=%D0%98%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D0%B5%D1%82%20%D0%BA%D0%BE%D0%BC%D0%BF%D0%BB%D0%B5%D0%BA%D1%82%20%D0%B4%D0%BB%D1%8F%20%D0%BF%D0%BE%D0%B8%D1%81%D0%BA%D0%B0%20%D1%83%D1%82%D0%B5%D1%87%D0%B5%D0%BA%20%D1%84%D1%80%D0%B5%D0%BE%D0%BD%D0%B0" target="_blank" rel="noopener">
+      <div class="pic"><img src="images/consumables.jpg" alt="Комплект для ультрафиолетовой диагностики утечек"></div>
+      <b class="t">Комплект для ультрафиолетовой диагностики утечек</b>
+      <button type="button" class="price buybtn" data-item="Комплект для ультрафиолетовой диагностики утечек" data-img="images/consumables.jpg"><span class="bk">Купить</span> 2 600 ₽</button>
+      <div class="specs">
+        <div class="stitle">Комплект для ультрафиолетовой диагностики утечек</div>
+        <div class="savail">● В наличии на складе</div>
+        <div class="shead">Характеристики</div>
+        <div class="row"><span>Состав</span><b>краситель, фонарь, очки, адаптер</b></div><div class="row"><span>Метод</span><b>УФ-краситель</b></div><div class="row"><span>Применяемость</span><b>R134a, R1234yf</b></div><div class="row"><span>Результат</span><b>точка утечки за минуты</b></div>
+        <div class="shint">Ищем утечки красителем и течеискателем — до запчасти</div>
+        <div class="qtyrow">
+          <div class="qty">
+            <button type="button" class="qm" aria-label="Уменьшить">−</button>
+            <input type="number" class="qv" value="1" min="1" max="999" inputmode="numeric">
+            <button type="button" class="qp" aria-label="Увеличить">+</button>
+          </div>
+          <button type="button" class="addcart" data-item="Комплект для ультрафиолетовой диагностики утечек" data-img="images/consumables.jpg">В корзину</button>
+        </div>
+      </div>
+    </a>
+
+    <a class="ccard drop" data-cat="heaters" href="https://wa.me/79288807335?text=%D0%98%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D0%B5%D1%82%20%D0%B0%D0%B2%D1%82%D0%BE%D0%BD%D0%BE%D0%BC%D0%BD%D1%8B%D0%B9%20%D0%BE%D1%82%D0%BE%D0%BF%D0%B8%D1%82%D0%B5%D0%BB%D1%8C%20%D0%BA%D0%B0%D0%B1%D0%B8%D0%BD%D1%8B" target="_blank" rel="noopener">
+      <div class="pic"><img src="images/heater.jpg" alt="Автономный отопитель кабины (сухой фен)"></div>
+      <b class="t">Автономный отопитель кабины (сухой фен)</b>
+      <button type="button" class="price buybtn" data-item="Автономный отопитель кабины (сухой фен)" data-img="images/heater.jpg"><span class="bk">Купить</span> 25 000 ₽</button>
+      <div class="specs">
+        <div class="stitle">Автономный отопитель кабины (сухой фен)</div>
+        <div class="savail">● В наличии на складе</div>
+        <div class="shead">Характеристики</div>
+        <div class="row"><span>Тип</span><b>воздушный, автономный</b></div><div class="row"><span>Мощность</span><b>2 / 4 кВт — уточним</b></div><div class="row"><span>Топливо</span><b>дизель</b></div><div class="row"><span>Питание</span><b>12 / 24 В</b></div><div class="row"><span>Установка</span><b>в нашем цеху</b></div><div class="row"><span>Гарантия</span><b>12 мес.</b></div>
+        <div class="shint">Кабина тёплая до запуска двигателя — экономия топлива зимой</div>
+        <div class="qtyrow">
+          <div class="qty">
+            <button type="button" class="qm" aria-label="Уменьшить">−</button>
+            <input type="number" class="qv" value="1" min="1" max="999" inputmode="numeric">
+            <button type="button" class="qp" aria-label="Увеличить">+</button>
+          </div>
+          <button type="button" class="addcart" data-item="Автономный отопитель кабины (сухой фен)" data-img="images/heater.jpg">В корзину</button>
+        </div>
+      </div>
+    </a>
+
+    <a class="ccard drop" data-cat="heaters" href="https://wa.me/79288807335?text=%D0%98%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D1%8E%D1%82%20%D1%80%D0%B5%D0%BC%D0%BA%D0%BE%D0%BC%D0%BF%D0%BB%D0%B5%D0%BA%D1%82%20%D0%BE%D1%82%D0%BE%D0%BF%D0%B8%D1%82%D0%B5%D0%BB%D1%8F%3A%20%D1%81%D0%B2%D0%B5%D1%87%D0%B0%2C%20%D1%81%D0%B5%D1%82%D0%BA%D0%B0%2C%20%D1%83%D0%BF%D0%BB%D0%BE%D1%82%D0%BD%D0%B5%D0%BD%D0%B8%D1%8F" target="_blank" rel="noopener">
+      <div class="pic"><img src="images/heater.jpg" alt="Ремкомплект отопителя (свеча, сетка, уплотнения)"></div>
+      <b class="t">Ремкомплект отопителя (свеча, сетка, уплотнения)</b>
+      <button type="button" class="price buybtn" data-item="Ремкомплект отопителя (свеча, сетка, уплотнения)" data-img="images/heater.jpg"><span class="bk">Купить</span> 4 200 ₽</button>
+      <div class="specs">
+        <div class="stitle">Ремкомплект отопителя (свеча, сетка, уплотнения)</div>
+        <div class="savail">● В наличии на складе</div>
+        <div class="shead">Характеристики</div>
+        <div class="row"><span>Состав</span><b>свеча накала, сетка, прокладки</b></div><div class="row"><span>Применяемость</span><b>Planar, Webasto, Eberspächer — уточним</b></div><div class="row"><span>Симптомы</span><b>дым, запуск с 3-й попытки</b></div><div class="row"><span>Работа</span><b>чистка + замена расходников</b></div>
+        <div class="shint">Чистим и перебираем отопители перед каждым сезоном</div>
+        <div class="qtyrow">
+          <div class="qty">
+            <button type="button" class="qm" aria-label="Уменьшить">−</button>
+            <input type="number" class="qv" value="1" min="1" max="999" inputmode="numeric">
+            <button type="button" class="qp" aria-label="Увеличить">+</button>
+          </div>
+          <button type="button" class="addcart" data-item="Ремкомплект отопителя (свеча, сетка, уплотнения)" data-img="images/heater.jpg">В корзину</button>
+        </div>
+      </div>
+    </a>
+
+    <a class="ccard drop" data-cat="electro" href="https://wa.me/79288807335?text=%D0%98%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D1%8E%D1%82%20%D0%B4%D0%B0%D1%82%D1%87%D0%B8%D0%BA%20%D0%B4%D0%B0%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D1%8F%20%D0%BA%D0%BE%D0%BD%D0%B4%D0%B8%D1%86%D0%B8%D0%BE%D0%BD%D0%B5%D1%80%D0%B0" target="_blank" rel="noopener">
+      <div class="pic"><img src="images/compressor-parts.jpg" alt="Датчик давления / реле кондиционера"></div>
+      <b class="t">Датчик давления / реле кондиционера</b>
+      <button type="button" class="price buybtn" data-item="Датчик давления / реле кондиционера" data-img="images/compressor-parts.jpg"><span class="bk">Купить</span> 1 100 ₽</button>
+      <div class="specs">
+        <div class="stitle">Датчик давления / реле кондиционера</div>
+        <div class="savail">● В наличии на складе</div>
+        <div class="shead">Характеристики</div>
+        <div class="row"><span>Тип</span><b>двойной / тройной (high-low)</b></div><div class="row"><span>Напряжение</span><b>12 / 24 В</b></div><div class="row"><span>Применяемость</span><b>R134a</b></div><div class="row"><span>Назначение</span><b>защита компрессора от сухого хода</b></div>
+        <div class="shint">Частая причина «кондей не включается» — не в компрессоре</div>
+        <div class="qtyrow">
+          <div class="qty">
+            <button type="button" class="qm" aria-label="Уменьшить">−</button>
+            <input type="number" class="qv" value="1" min="1" max="999" inputmode="numeric">
+            <button type="button" class="qp" aria-label="Увеличить">+</button>
+          </div>
+          <button type="button" class="addcart" data-item="Датчик давления / реле кондиционера" data-img="images/compressor-parts.jpg">В корзину</button>
+        </div>
+      </div>
+    </a>
+
+    <a class="ccard drop" data-cat="electro" href="https://wa.me/79288807335?text=%D0%98%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D1%8E%D1%82%20%D0%B1%D0%BB%D0%BE%D0%BA%20%D1%83%D0%BF%D1%80%D0%B0%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D1%8F%20%D0%BA%D0%BB%D0%B8%D0%BC%D0%B0%D1%82%D0%BE%D0%BC" target="_blank" rel="noopener">
+      <div class="pic"><img src="images/compressor.jpg" alt="Блок управления климатом (панель)"></div>
+      <b class="t">Блок управления климатом (панель)</b>
+      <button type="button" class="price buybtn" data-item="Блок управления климатом (панель)" data-img="images/compressor.jpg"><span class="bk">Купить</span> 5 400 ₽</button>
+      <div class="specs">
+        <div class="stitle">Блок управления климатом (панель)</div>
+        <div class="savail">● Под заказ, 3–7 дней</div>
+        <div class="shead">Характеристики</div>
+        <div class="row"><span>Напряжение</span><b>12 / 24 В</b></div><div class="row"><span>Управление</span><b>холод / обдув / рециркуляция</b></div><div class="row"><span>Подбор</span><b>по марке техники</b></div><div class="row"><span>Гарантия</span><b>6 мес.</b></div>
+        <div class="shint">Подбираем по разъёму и посадочному месту</div>
+        <div class="qtyrow">
+          <div class="qty">
+            <button type="button" class="qm" aria-label="Уменьшить">−</button>
+            <input type="number" class="qv" value="1" min="1" max="999" inputmode="numeric">
+            <button type="button" class="qp" aria-label="Увеличить">+</button>
+          </div>
+          <button type="button" class="addcart" data-item="Блок управления климатом (панель)" data-img="images/compressor.jpg">В корзину</button>
+        </div>
+      </div>
+    </a>
+
+    <a class="ccard drop" data-cat="electro" href="https://wa.me/79288807335?text=%D0%98%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D1%8E%D1%82%20%D0%BA%D0%BE%D0%BD%D1%82%D1%80%D0%BE%D0%BB%D0%BB%D0%B5%D1%80%20%D1%8D%D0%BB%D0%B5%D0%BA%D1%82%D1%80%D0%BE%D0%BA%D0%BE%D0%BC%D0%BF%D1%80%D0%B5%D1%81%D1%81%D0%BE%D1%80%D0%B0" target="_blank" rel="noopener">
+      <div class="pic"><img src="images/electric-compressors.jpg" alt="Контроллер электрокомпрессора"></div>
+      <b class="t">Контроллер электрокомпрессора</b>
+      <button type="button" class="price buybtn" data-item="Контроллер электрокомпрессора" data-img="images/electric-compressors.jpg"><span class="bk">Купить</span> 9 800 ₽</button>
+      <div class="specs">
+        <div class="stitle">Контроллер электрокомпрессора</div>
+        <div class="savail">● В наличии на складе</div>
+        <div class="shead">Характеристики</div>
+        <div class="row"><span>Напряжение</span><b>12 / 24 В</b></div><div class="row"><span>Защита</span><b>по току, давлению, температуре</b></div><div class="row"><span>Управление</span><b>обороты от датчиков</b></div><div class="row"><span>Комплектация</span><b>контроллер + коса</b></div>
+        <div class="shint">Без контроллера электрокомпрессор не живёт — берегите его</div>
+        <div class="qtyrow">
+          <div class="qty">
+            <button type="button" class="qm" aria-label="Уменьшить">−</button>
+            <input type="number" class="qv" value="1" min="1" max="999" inputmode="numeric">
+            <button type="button" class="qp" aria-label="Увеличить">+</button>
+          </div>
+          <button type="button" class="addcart" data-item="Контроллер электрокомпрессора" data-img="images/electric-compressors.jpg">В корзину</button>
+        </div>
+      </div>
+    </a>
+
+  </div>
+  <div class="nores" id="nores">
+    <b>По вашему запросу ничего не найдено</b>
+    Уточните формулировку или позвоните — подберём по марке техники.<br>
+    <a class="btn" href="tel:+79288807335" style="box-shadow:none;margin-top:16px">📞 +7 928 880-73-35</a>
+  </div>
+</div>
+
+<div class="wrap">
+  <div class="cathead"><h2>Подбор по технике</h2><span>или по фото шильдика старого агрегата</span></div>
+  <div class="grid" style="padding-top:12px">
+    <a class="ccard" href="compressors.html">
+      <div class="pic"><img src="images/compressor-acros.jpg" alt="Компрессоры для комбайнов Ростсельмаш"></div>
+      <b class="t">Раздел «Компрессоры»</b>
+      <div class="app">Acros · Vector · Torum · МТЗ · John Deere</div>
+      <p>Подробный подбор компрессоров по модели техники, с чертежами и габаритами.</p>
+      <span class="go">Открыть раздел →</span>
+    </a>
+    <a class="ccard" href="index.html#services">
+      <div class="pic"><img src="images/compressors-shop.jpg" alt="Услуги по ремонту климатических систем"></div>
+      <b class="t">Услуги и ремонт</b>
+      <div class="app">Диагностика · заправка · ремонт в цеху</div>
+      <p>Что мы делаем, кроме продажи запчастей: выезд к хозяйству, зимняя ревизия парка.</p>
+      <span class="go">Смотреть услуги →</span>
+    </a>
+    <a class="ccard" href="index.html#contacts">
+      <div class="pic"><img src="images/heater.jpg" alt="Контакты АгроКлимат23"></div>
+      <b class="t">Не нашли нужное?</b>
+      <div class="app">Подбор за 30 минут по фото шильдика</div>
+      <p>Пришлите фото узла в WhatsApp — скажем, что есть в наличии и под какой аналог.</p>
+      <span class="go">Оставить заявку →</span>
+    </a>
+  </div>
+
+  <div class="ctastrip">
+    <div>
+      <b>Нужна деталь под конкретную машину?</b>
+      <span>Позвоните или пришлите фото шильдика — подберём и подтвердим наличие за 30 минут</span>
+    </div>
+    <a class="btn" href="tel:+79288807335" style="box-shadow:none">📞 +7 928 880-73-35</a>
+  </div>
+</div>
+
+<footer>
+  <div class="wrap">
+    <div><b style="color:#fff">АгроКлимат23</b> · климатические системы спецтехники<br>© <span id="year"></span> · Краснодарский край</div>
+    <div><a href="index.html">← На главную</a> · <a href="compressors.html">Компрессоры</a> · <a href="index.html#contacts">Контакты и заявка</a></div>
+  </div>
+</footer>
+
+<div class="cartOverlay" id="cartOverlay"></div>
+<aside class="cartDrawer" id="cartDrawer">
+  <div class="cdHead">
+    <b>Корзина</b>
+    <button id="cartClose" title="Закрыть">✕</button>
+  </div>
+  <div class="cdList" id="cartList"></div>
+  <div class="cdFoot">
+    <div class="cdField">
+      <input id="coName" placeholder="Имя или организация">
+      <input id="coPhone" type="tel" placeholder="Телефон *">
+      <div class="coRadio">
+        <label><input type="radio" name="dvr" value="Самовывоз со склада" checked> Самовывоз со склада</label>
+        <label><input type="radio" name="dvr" value="Транспортная компания (СДЭК / ПЭК / Деловые Линии)"> Транспортная компания (СДЭК / ПЭК / Деловые Линии)</label>
+      </div>
+      <textarea id="coMsg" rows="2" placeholder="Комментарий: марка техники, город, удобное время..."></textarea>
+    </div>
+    <div class="cdNote">💳 Оплата — по счёту для юридических лиц. Менеджер подтвердит наличие и выставит счёт после заявки.</div>
+    <button class="btnSend" id="cartSend">Отправить заявку</button>
+    <button class="btnClear" id="cartClear">Очистить корзину</button>
+  </div>
+</aside>
+<div id="cdHover"><img src="" alt="Фото товара"></div>
+<div class="buyPop" id="buyPop" role="dialog" aria-live="polite">
+  <div class="bmsg">Товар добавлен в корзину</div>
+  <div class="brow">
+    <button class="bgo" id="buyGo">🛒 Перейти в корзину</button>
+    <button class="bcont" id="buyCont">Продолжить покупку</button>
+  </div>
+</div>
+
+<script>
+document.getElementById('year').textContent = new Date().getFullYear();
+
+// Фильтр карточек по типам
+const chips = document.querySelectorAll('.chip');
+const cards = document.querySelectorAll('.ccard[data-cat]');
+chips.forEach(ch => ch.addEventListener('click', () => {
+  chips.forEach(c => c.classList.remove('active'));
+  ch.classList.add('active');
+  const f = ch.dataset.f;
+  cards.forEach(card => {
+    card.style.display = (f === 'all' || card.dataset.cat === f) ? '' : 'none';
+  });
+}));
+
+// Карусели фото: только ручное перелистывание стрелками (без авторотации)
+document.querySelectorAll('.pic.car').forEach(car => {
+  const track = car.querySelector('.track');
+  const imgs = track.querySelectorAll('img');
+  const dots = car.querySelectorAll('.dots i');
+  const n = imgs.length;
+  let i = 0;
+  function go(k){
+    i = ((k % n) + n) % n;
+    track.style.transform = 'translateX(-' + (i * 100) + '%)';
+    dots.forEach((d, di) => d.classList.toggle('on', di === i));
+  }
+  car.querySelector('.next').addEventListener('click', e => { e.preventDefault(); e.stopPropagation(); go(i + 1); });
+  car.querySelector('.prev').addEventListener('click', e => { e.preventDefault(); e.stopPropagation(); go(i - 1); });
+});
+
+// Корзина (localStorage) + кнопка «В корзину»
+const WA_ORDER_PHONE = '79288807335'; // WhatsApp для заявок из корзины
+const CART_KEY = 'ak23_cart';
+function getCart(){
+  try {
+    const c = JSON.parse(localStorage.getItem(CART_KEY)) || [];
+    return c.map(x => (typeof x === 'string') ? { n: x, q: 1 } : x); // миграция старого формата
+  } catch(e){ return []; }
+}
+function saveCart(c){ localStorage.setItem(CART_KEY, JSON.stringify(c)); renderCount(); }
+function renderCount(){ const el = document.getElementById('cartCount'); if (el) el.textContent = getCart().reduce((s, x) => s + x.q, 0); }
+
+// Счётчик количества на карточке (− / +, можно ввести вручную)
+document.querySelectorAll('.qty').forEach(box => {
+  const inp = box.querySelector('.qv');
+  const clamp = () => { let v = parseInt(inp.value, 10); if (isNaN(v) || v < 1) v = 1; if (v > 999) v = 999; inp.value = v; };
+  box.querySelector('.qm').addEventListener('click', e => { e.preventDefault(); e.stopPropagation(); inp.value = +inp.value - 1; clamp(); });
+  box.querySelector('.qp').addEventListener('click', e => { e.preventDefault(); e.stopPropagation(); inp.value = +inp.value + 1; clamp(); });
+  inp.addEventListener('click', e => { e.preventDefault(); e.stopPropagation(); });
+  ['focus','keydown','input'].forEach(ev => inp.addEventListener(ev, e => e.stopPropagation()));
+  inp.addEventListener('change', clamp);
+});
+
+// Клик по ценнику «Купить»: товар в корзину + сообщение с выбором
+const buyPop = document.getElementById('buyPop');
+function closeBuyPop(){ buyPop.classList.remove('open'); }
+document.querySelectorAll('.buybtn').forEach(btn => btn.addEventListener('click', e => {
+  e.preventDefault(); e.stopPropagation();
+  const c = getCart();
+  const img = btn.dataset.img || 'images/compressor.jpg';
+  const it = c.find(x => x.n === btn.dataset.item);
+  if (it){ it.q += 1; if (btn.dataset.img) it.img = btn.dataset.img; }
+  else c.push({ n: btn.dataset.item, q: 1, img: img });
+  saveCart(c);
+  buyPop.querySelector('.bmsg').textContent = '«' + btn.dataset.item + '» добавлен в корзину. Что делаем дальше?';
+  buyPop.classList.add('open');
+}));
+document.getElementById('buyGo').addEventListener('click', () => { closeBuyPop(); openCart(); });
+document.getElementById('buyCont').addEventListener('click', closeBuyPop);
+
+document.querySelectorAll('.addcart').forEach(btn => btn.addEventListener('click', e => {
+  e.preventDefault(); e.stopPropagation();
+  const row = btn.closest('.qtyrow');
+  const qtyEl = row ? row.querySelector('.qv') : null;
+  const qty = qtyEl ? Math.min(999, Math.max(1, parseInt(qtyEl.value, 10) || 1)) : 1;
+  const c = getCart();
+  const img = btn.dataset.img || 'images/compressor.jpg';
+  const it = c.find(x => x.n === btn.dataset.item);
+  if (it){ it.q += qty; if (btn.dataset.img) it.img = btn.dataset.img; }
+  else c.push({ n: btn.dataset.item, q: qty, img: img });
+  saveCart(c);
+  const old = btn.textContent;
+  btn.textContent = '✓ Добавлено: ' + qty + ' шт.';
+  setTimeout(() => { btn.textContent = old; }, 1600);
+}));
+// Выезжающее окно корзины
+const drawer = document.getElementById('cartDrawer');
+const overlay = document.getElementById('cartOverlay');
+function openCart(){ renderList(); drawer.classList.add('open'); overlay.classList.add('open'); }
+function closeCart(){ drawer.classList.remove('open'); overlay.classList.remove('open'); hideThumb(); }
+function renderList(){
+  const c = getCart();
+  const box = document.getElementById('cartList');
+  if (!c.length){
+    box.innerHTML = '<div class="cdEmpty">Корзина пока пуста.<br>Наведите на карточку товара,<br>выберите количество<br>и нажмите «В корзину».</div>';
+    return;
+  }
+  box.innerHTML = c.map((x, i) =>
+    '<div class="cdItem"><span class="cdThumb" data-img="' + (x.img || 'images/compressor.jpg') + '" title="Фото товара">' +
+    '<svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-4.5-4.5L9 18"/></svg></span>' +
+    '<span class="nm">' + (i + 1) + '. ' + x.n + '</span>' +
+    '<div class="cdQty"><button data-a="m" data-i="' + i + '" title="Уменьшить">−</button><span>' + x.q + ' шт</span><button data-a="p" data-i="' + i + '" title="Увеличить">+</button></div>' +
+    '<button class="cdDel" data-a="d" data-i="' + i + '" title="Удалить">✕</button></div>').join('') +
+    '<div class="cdTotal">Итого: <b>' + c.reduce((s, x) => s + x.q, 0) + ' шт.</b></div>';
+  box.querySelectorAll('button').forEach(b => b.addEventListener('click', () => {
+    const cc = getCart();
+    const i = +b.dataset.i;
+    if (b.dataset.a === 'd'){ cc.splice(i, 1); }
+    else if (b.dataset.a === 'p'){ cc[i].q = Math.min(999, cc[i].q + 1); }
+    else { cc[i].q -= 1; if (cc[i].q < 1) cc.splice(i, 1); }
+    saveCart(cc); renderList();
+  }));
+  bindThumbs(box);
+}
+
+// Мини-фото товара при наведении на значок в корзине
+const hoverBox = document.getElementById('cdHover');
+function showThumb(t){
+  hoverBox.querySelector('img').src = t.dataset.img;
+  const r = t.getBoundingClientRect();
+  const w = 180, h = 180;
+  let left = r.left - 8;
+  if (left + w > window.innerWidth - 8) left = window.innerWidth - w - 8;
+  if (left < 8) left = 8;
+  let top = r.bottom + 8;
+  if (top + h > window.innerHeight) top = Math.max(8, r.top - h - 8);
+  hoverBox.style.left = left + 'px';
+  hoverBox.style.top = top + 'px';
+  hoverBox.style.display = 'block';
+}
+function hideThumb(){ hoverBox.style.display = 'none'; }
+function bindThumbs(box){
+  box.querySelectorAll('.cdThumb').forEach(t => {
+    t.addEventListener('mouseenter', function(){ showThumb(t); });
+    t.addEventListener('mouseleave', hideThumb);
+    t.addEventListener('click', function(){ (hoverBox.style.display === 'block') ? hideThumb() : showThumb(t); });
+  });
+}
+const cartBtn = document.getElementById('cartBtn');
+if (cartBtn) cartBtn.addEventListener('click', e => { e.preventDefault(); openCart(); });
+document.getElementById('cartClose').addEventListener('click', closeCart);
+overlay.addEventListener('click', closeCart);
+document.getElementById('cartSend').addEventListener('click', () => {
+  const c = getCart();
+  if (!c.length) return;
+  const fPhone = document.getElementById('coPhone');
+  const phone = fPhone.value.trim();
+  if (!phone){ fPhone.style.borderColor = '#c0392b'; fPhone.focus(); return; }
+  fPhone.style.borderColor = '';
+  const name = document.getElementById('coName').value.trim() || '—';
+  const dv = document.querySelector('input[name=dvr]:checked').value;
+  const comment = document.getElementById('coMsg').value.trim();
+  let text = 'Заявка из корзины с сайта:%0A' + c.map((x, i) => encodeURIComponent((i + 1) + '. ' + x.n + ' — ' + x.q + ' шт.')).join('%0A');
+  text += '%0A' + encodeURIComponent('Итого: ' + c.reduce((s, x) => s + x.q, 0) + ' шт.');
+  text += '%0A——————%0A';
+  text += encodeURIComponent('Имя / организация: ' + name) + '%0A';
+  text += encodeURIComponent('Телефон: ' + phone) + '%0A';
+  text += encodeURIComponent('Получение: ' + dv);
+  if (comment) text += '%0A' + encodeURIComponent('Комментарий: ' + comment);
+  window.open('https://wa.me/' + WA_ORDER_PHONE + '?text=' + text, '_blank');
+  closeCart();
+});
+document.getElementById('cartClear').addEventListener('click', () => { saveCart([]); renderList(); });
+renderCount();
+
+// Поиск по каталогу + фильтр-чипы работают вместе
+const searchInput = document.getElementById('q');
+const nores = document.getElementById('nores');
+const foundEl = document.getElementById('found');
+let curFilter = 'all';
+
+function applyFilter(){
+  const q = (searchInput.value || '').trim().toLowerCase();
+  let shown = 0;
+  cards.forEach(c => {
+    const okCat = (curFilter === 'all' || c.dataset.cat === curFilter);
+    const okQ = !q || c.textContent.toLowerCase().indexOf(q) > -1;
+    const on = okCat && okQ;
+    c.style.display = on ? '' : 'none';
+    if (on) shown++;
+  });
+  nores.style.display = shown ? 'none' : 'block';
+  foundEl.textContent = 'Найдено позиций: ' + shown + ' из ' + cards.length;
+}
+
+chips.forEach(ch => ch.addEventListener('click', () => {
+  chips.forEach(c => c.classList.remove('active'));
+  ch.classList.add('active');
+  curFilter = ch.dataset.f;
+  applyFilter();
+}));
+searchInput.addEventListener('input', applyFilter);
+applyFilter();
+
+</script>
+
+</body>
+</html>

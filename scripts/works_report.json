@@ -1,0 +1,506 @@
+[
+ {
+  "slug": "ustanovka-konditsionera-na-traktor",
+  "title": "Установка кондиционера на трактор",
+  "group": "Установка",
+  "src": "masters/установка кондиционера на трактор.jpg",
+  "src_size": [
+   1024,
+   768
+  ],
+  "crop": [
+   0,
+   0,
+   1024,
+   768
+  ],
+  "keep": 100,
+  "gain": 0.0,
+  "bright": 138,
+  "kb": 143,
+  "q": 84
+ },
+ {
+  "slug": "konditsioner-na-traktor-mtz",
+  "title": "Кондиционер на трактор МТЗ",
+  "group": "Установка",
+  "src": "masters/кондиционер на трактор мтз.jpg",
+  "src_size": [
+   1024,
+   768
+  ],
+  "crop": [
+   0,
+   0,
+   1024,
+   768
+  ],
+  "keep": 100,
+  "gain": 0.0,
+  "bright": 142,
+  "kb": 195,
+  "q": 84
+ },
+ {
+  "slug": "konditsioner-na-traktor-t-150",
+  "title": "Кондиционер на трактор Т-150: установка и ремонт",
+  "group": "Установка",
+  "src": "masters/кондиционер на трактор т 150 установка ремонт.jpg",
+  "src_size": [
+   1024,
+   768
+  ],
+  "crop": [
+   0,
+   0,
+   1024,
+   768
+  ],
+  "keep": 100,
+  "gain": 0.0,
+  "bright": 157,
+  "kb": 188,
+  "q": 84
+ },
+ {
+  "slug": "konditsioner-na-kombayn",
+  "title": "Кондиционер на комбайн",
+  "group": "Установка",
+  "src": "masters/кондиционер на комбайн.jpg",
+  "src_size": [
+   1024,
+   768
+  ],
+  "crop": [
+   0,
+   0,
+   1024,
+   768
+  ],
+  "keep": 100,
+  "gain": 0.0,
+  "bright": 120,
+  "kb": 194,
+  "q": 84
+ },
+ {
+  "slug": "zapravka-konditsionera-kombayna",
+  "title": "Заправка кондиционера комбайна",
+  "group": "Заправка",
+  "src": "masters/Заправка кондиционера комбайна.jpg",
+  "src_size": [
+   1024,
+   768
+  ],
+  "crop": [
+   0,
+   0,
+   1024,
+   768
+  ],
+  "keep": 100,
+  "gain": 0.0,
+  "bright": 111,
+  "kb": 186,
+  "q": 84
+ },
+ {
+  "slug": "zapravka-konditsionera-pogruzchika",
+  "title": "Заправка кондиционера погрузчика",
+  "group": "Заправка",
+  "src": "masters/Заправка кондиционера погрузчика.jpg",
+  "src_size": [
+   1200,
+   1600
+  ],
+  "crop": [
+   0,
+   350,
+   1200,
+   1250
+  ],
+  "keep": 56,
+  "gain": 4.7,
+  "bright": 116,
+  "kb": 147,
+  "q": 84
+ },
+ {
+  "slug": "zapravka-konditsionera-freonom",
+  "title": "Заправка кондиционера фреоном",
+  "group": "Заправка",
+  "src": "masters/Заправка кондиционера газ.jpg",
+  "src_size": [
+   1200,
+   1600
+  ],
+  "crop": [
+   0,
+   696,
+   1200,
+   1596
+  ],
+  "keep": 56,
+  "gain": 23.3,
+  "bright": 105,
+  "kb": 188,
+  "q": 84
+ },
+ {
+  "slug": "servisnoe-obsluzhivanie-versatile-550",
+  "title": "Сервисное обслуживание Versatile 550",
+  "group": "Сервис",
+  "src": "masters/Сервисное обслуживание Versatile 550.jpg",
+  "src_size": [
+   1024,
+   768
+  ],
+  "crop": [
+   0,
+   0,
+   1024,
+   768
+  ],
+  "keep": 100,
+  "gain": 0.0,
+  "bright": 135,
+  "kb": 127,
+  "q": 84
+ },
+ {
+  "slug": "remont-konditsionera-claas",
+  "title": "Ремонт кондиционера на тракторе Claas",
+  "group": "Ремонт",
+  "src": "masters/ремонт кондиционера на тракторе Claas.jpg",
+  "src_size": [
+   1024,
+   768
+  ],
+  "crop": [
+   0,
+   0,
+   1024,
+   768
+  ],
+  "keep": 100,
+  "gain": 0.0,
+  "bright": 120,
+  "kb": 209,
+  "q": 72
+ },
+ {
+  "slug": "remont-konditsionera-na-kombayne",
+  "title": "Ремонт кондиционера на комбайне",
+  "group": "Ремонт",
+  "src": "masters/ремонт кондиционера на комбайне.jpg",
+  "src_size": [
+   1024,
+   768
+  ],
+  "crop": [
+   0,
+   0,
+   1024,
+   768
+  ],
+  "keep": 100,
+  "gain": 0.0,
+  "bright": 108,
+  "kb": 184,
+  "q": 80
+ },
+ {
+  "slug": "remont-konditsionera-belarus-1221",
+  "title": "Ремонт кондиционера Беларус 1221",
+  "group": "Ремонт",
+  "src": "masters/ремонт кондиционера беларус 1221.jpg",
+  "src_size": [
+   1152,
+   864
+  ],
+  "crop": [
+   0,
+   0,
+   1152,
+   864
+  ],
+  "keep": 100,
+  "gain": 0.0,
+  "bright": 101,
+  "kb": 168,
+  "q": 84
+ },
+ {
+  "slug": "remont-konditsionera-belarus-1523",
+  "title": "Ремонт кондиционера на Беларус 1523.3",
+  "group": "Ремонт",
+  "src": "masters/Ремонт кондиционера на беларус 1523.3.jpg",
+  "src_size": [
+   1024,
+   768
+  ],
+  "crop": [
+   0,
+   0,
+   1024,
+   768
+  ],
+  "keep": 100,
+  "gain": 0.0,
+  "bright": 146,
+  "kb": 195,
+  "q": 76
+ },
+ {
+  "slug": "remont-konditsionera-k-744",
+  "title": "Ремонт кондиционера К-744",
+  "group": "Ремонт",
+  "src": "masters/ремонт кондиционера к 744.jpg",
+  "src_size": [
+   1600,
+   1200
+  ],
+  "crop": [
+   0,
+   0,
+   1600,
+   1200
+  ],
+  "keep": 100,
+  "gain": 0.0,
+  "bright": 157,
+  "kb": 192,
+  "q": 84
+ },
+ {
+  "slug": "remont-konditsionera-traktora-t-150",
+  "title": "Ремонт кондиционера трактора Т-150",
+  "group": "Ремонт",
+  "src": "masters/ремонт кондиционера трактора Т 150.jpg",
+  "src_size": [
+   1600,
+   1200
+  ],
+  "crop": [
+   0,
+   0,
+   1600,
+   1200
+  ],
+  "keep": 100,
+  "gain": 0.0,
+  "bright": 123,
+  "kb": 181,
+  "q": 84
+ },
+ {
+  "slug": "remont-konditsionera-torum-740",
+  "title": "Ремонт кондиционера Торум 740",
+  "group": "Ремонт",
+  "src": "masters/Ремонт кондиционера торум 740.jpg",
+  "src_size": [
+   1024,
+   576
+  ],
+  "crop": [
+   128,
+   0,
+   896,
+   576
+  ],
+  "keep": 75,
+  "gain": 4.2,
+  "bright": 128,
+  "kb": 158,
+  "q": 84
+ },
+ {
+  "slug": "remont-konditsionera-versatile-2375",
+  "title": "Ремонт кондиционера Versatile 2375",
+  "group": "Ремонт",
+  "src": "masters/Ремонт кондиционера Versatile 2375.jpg",
+  "src_size": [
+   1024,
+   768
+  ],
+  "crop": [
+   0,
+   0,
+   1024,
+   768
+  ],
+  "keep": 100,
+  "gain": 0.0,
+  "bright": 141,
+  "kb": 212,
+  "q": 72
+ },
+ {
+  "slug": "remont-konditsionera-case-340",
+  "title": "Ремонт кондиционера на Case 340",
+  "group": "Ремонт",
+  "src": "masters/Ремонт кондиционера на CASE 340.jpg",
+  "src_size": [
+   1024,
+   768
+  ],
+  "crop": [
+   0,
+   0,
+   1024,
+   768
+  ],
+  "keep": 100,
+  "gain": 0.0,
+  "bright": 168,
+  "kb": 189,
+  "q": 80
+ },
+ {
+  "slug": "remont-konditsionera-cat-3004-a1",
+  "title": "Ремонт кондиционера CAT 3004 A1",
+  "group": "Ремонт",
+  "src": "masters/Ремонт кондиционера CAT 3004 A1.jpg",
+  "src_size": [
+   2000,
+   1125
+  ],
+  "crop": [
+   250,
+   0,
+   1750,
+   1125
+  ],
+  "keep": 75,
+  "gain": 2.7,
+  "bright": 140,
+  "kb": 208,
+  "q": 80
+ },
+ {
+  "slug": "remont-konditsionera-jcb",
+  "title": "Ремонт кондиционера JCB",
+  "group": "Ремонт",
+  "src": "masters/Ремонт кондиционера JCB.jpg",
+  "src_size": [
+   1600,
+   1200
+  ],
+  "crop": [
+   0,
+   0,
+   1600,
+   1200
+  ],
+  "keep": 100,
+  "gain": 0.0,
+  "bright": 126,
+  "kb": 192,
+  "q": 84
+ },
+ {
+  "slug": "remont-konditsionera-kamaz",
+  "title": "Ремонт кондиционера КАМАЗ",
+  "group": "Ремонт",
+  "src": "masters/ремонт кондиционера камаз.jpg",
+  "src_size": [
+   1024,
+   768
+  ],
+  "crop": [
+   0,
+   0,
+   1024,
+   768
+  ],
+  "keep": 100,
+  "gain": 0.0,
+  "bright": 110,
+  "kb": 197,
+  "q": 84
+ },
+ {
+  "slug": "remont-konditsionera-daf",
+  "title": "Ремонт кондиционера на грузовике DAF",
+  "group": "Ремонт",
+  "src": "masters/Ремонт кондиционера на грузовике DAF.jpg",
+  "src_size": [
+   1024,
+   768
+  ],
+  "crop": [
+   0,
+   0,
+   1024,
+   768
+  ],
+  "keep": 100,
+  "gain": 0.0,
+  "bright": 119,
+  "kb": 115,
+  "q": 84
+ },
+ {
+  "slug": "remont-konditsionera-ekskavatora",
+  "title": "Ремонт кондиционера экскаватора",
+  "group": "Ремонт",
+  "src": "masters/Ремонт кондиционера эксковатора.jpg",
+  "src_size": [
+   2000,
+   1125
+  ],
+  "crop": [
+   250,
+   0,
+   1750,
+   1125
+  ],
+  "keep": 75,
+  "gain": 0.5,
+  "bright": 146,
+  "kb": 204,
+  "q": 84
+ },
+ {
+  "slug": "remont-konditsionera-opryskivatelya-tuman",
+  "title": "Ремонт кондиционера на опрыскивателе «Туман»",
+  "group": "Ремонт",
+  "src": "masters/ремонт кондиционера оприскиватель туман.jpg",
+  "src_size": [
+   1600,
+   1200
+  ],
+  "crop": [
+   0,
+   0,
+   1600,
+   1200
+  ],
+  "keep": 100,
+  "gain": 0.0,
+  "bright": 124,
+  "kb": 208,
+  "q": 84
+ },
+ {
+  "slug": "vosstanovlenie-konditsionera-na-traktore",
+  "title": "Восстановление кондиционера на тракторе",
+  "group": "Ремонт",
+  "src": "masters/вастонавление кондиционера на тракторе.jpg",
+  "src_size": [
+   1024,
+   768
+  ],
+  "crop": [
+   0,
+   0,
+   1024,
+   768
+  ],
+  "keep": 100,
+  "gain": 0.0,
+  "bright": 127,
+  "kb": 185,
+  "q": 80
+ }
+]

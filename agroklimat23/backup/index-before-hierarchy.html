@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>АгроКлимат 23 — климатические системы для сельхоз- и дорожной техники | Краснодарский край</title>
+<meta name="description" content="Установка, ремонт и обслуживание климатических систем на сельскохозяйственную и дорожно-строительную технику в Краснодарском крае. Восстановление компрессоров, автономные отопители, зимняя ревизия парка. Выезд к хозяйству.">
+<style>
+  :root{
+    --green:#0f3d2e; --green2:#14532d; --green3:#1d6a44;
+    --amber:#f59e0b; --amber2:#d97706;
+    --bg:#f4f6f2; --card:#ffffff; --ink:#14211a; --muted:#5c6b60;
+    --radius:16px; --shadow:0 10px 30px rgba(15,61,46,.10);
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  section[id]{scroll-margin-top:92px}
+  body{font-family:'Segoe UI',system-ui,-apple-system,Roboto,Arial,sans-serif;color:var(--ink);background:var(--bg);line-height:1.55}
+  img{max-width:100%;display:block}
+  a{text-decoration:none;color:inherit}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 20px}
+  .btn{display:inline-block;background:var(--amber);color:#1c1200;font-weight:700;padding:14px 26px;border-radius:12px;border:none;cursor:pointer;font-size:16px;transition:.2s;box-shadow:0 6px 18px rgba(245,158,11,.35)}
+  .btn:hover{background:var(--amber2);transform:translateY(-2px)}
+  .btn.ghost{background:transparent;color:#fff;border:2px solid rgba(255,255,255,.65);box-shadow:none}
+  .btn.ghost:hover{background:rgba(255,255,255,.12)}
+  .btn.small{padding:13px 22px;font-size:16px;line-height:1.2}
+  h2.section{font-size:clamp(24px,3.4vw,36px);color:var(--green);margin-bottom:8px}
+  h2.section a.seclink{color:inherit;text-decoration:none;display:inline-flex;align-items:baseline;gap:12px}
+  h2.section a.seclink span{font-size:14px;font-weight:700;color:var(--amber2);opacity:.9}
+  h2.section a.seclink:hover{color:var(--green2)}
+  h2.section a.seclink:hover span{text-decoration:underline}
+  .catall{display:block;max-width:380px;margin:22px auto 0;text-align:center;background:var(--green2);color:#fff;border:1.5px solid var(--green2);font-weight:800;font-size:15px;padding:13px 18px;border-radius:12px;text-decoration:none;transition:.15s}
+  .catall:hover{background:var(--green);border-color:var(--green);transform:translateY(-2px)}
+  .lead{color:var(--muted);max-width:720px;margin-bottom:28px}
+  section{padding:64px 0}
+  section:nth-of-type(even){background:#fff}
+
+  /* Topbar */
+  .topbar{background:var(--green);color:#cfe3d6;font-size:14px;padding:8px 0}
+  .topbar .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+  .topbar b{color:#fff}
+  .topbar a:hover{color:var(--amber)}
+
+  /* Header */
+  header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.96);backdrop-filter:blur(8px);box-shadow:0 2px 14px rgba(0,0,0,.07)}
+  .nav{display:flex;align-items:center;justify-content:space-between;padding:14px 0;flex-wrap:wrap;gap:10px}
+  .logo{font-size:22px;font-weight:800;color:var(--green);letter-spacing:.3px}
+  .logo span{color:var(--amber)}
+  .logo small{display:block;font-size:11px;font-weight:600;color:var(--muted);letter-spacing:.6px;text-transform:uppercase}
+  .menu{display:flex;gap:22px;font-weight:600;font-size:17px;align-items:center;flex-wrap:wrap}
+  .menu a{color:var(--green);padding:12px 2px;border-bottom:2px solid transparent;line-height:1.2;white-space:nowrap}
+  .menu a:hover{color:var(--amber2);border-color:var(--amber)}
+  .menu a.hot{color:#1c1200;background:var(--amber);border-radius:999px;padding:12px 20px;font-size:17px;line-height:1.2;font-weight:800;box-shadow:0 5px 14px rgba(245,158,11,.38);transition:.15s;align-self:center;display:inline-flex;align-items:center}
+  .menu a.hot:hover{color:#1c1200;background:var(--amber2);border-color:transparent;transform:translateY(-1px);box-shadow:0 8px 20px rgba(245,158,11,.5)}
+  .menu a.hot .cartico{width:28px;height:28px;margin-left:9px;flex:none;display:block}
+  @media(max-width:860px){ .menu a.hot{align-self:flex-start;padding:10px 18px} }
+  .burger{display:none;background:none;border:none;font-size:26px;cursor:pointer;color:var(--green)}
+  @media(max-width:860px){
+    .menu{display:none;position:absolute;top:100%;left:0;right:0;background:#fff;flex-direction:column;padding:16px 20px;box-shadow:0 14px 24px rgba(0,0,0,.12);gap:12px}
+    .menu.open{display:flex}
+    .burger{display:block}
+  }
+
+  /* Hero */
+  .hero{position:relative;color:#fff;min-height:560px;display:flex;align-items:center;background:var(--green)}
+  .hero img.bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.42}
+  .hero .wrap{position:relative;z-index:2;padding:80px 20px}
+  .hero .tag{display:inline-block;background:rgba(245,158,11,.16);border:1px solid rgba(245,158,11,.55);color:#ffd58a;font-weight:600;font-size:14px;padding:6px 14px;border-radius:999px;margin-bottom:18px}
+  .hero h1{font-size:clamp(30px,4.6vw,52px);line-height:1.12;max-width:760px;margin-bottom:16px}
+  .hero h1 em{font-style:normal;color:var(--amber)}
+  .hero p{max-width:none;font-size:clamp(20px,2.1vw,26px);line-height:1.42;font-weight:600;color:#e6efe8;margin-bottom:30px}
+  .hero .cta{display:flex;gap:14px;flex-wrap:wrap}
+
+  /* Season banner */
+
+  /* Features */
+  .grid{display:grid;gap:20px}
+
+  /* Services */
+  .grid.s4{grid-template-columns:repeat(auto-fill,minmax(265px,1fr))}
+  .svc{background:var(--card);border:1px solid #e4e9e2;border-radius:var(--radius);padding:26px;display:flex;flex-direction:column;transition:.2s}
+  .svc:hover{transform:translateY(-4px);box-shadow:var(--shadow);border-color:#cfd8cc}
+  .svc .num{font-size:13px;font-weight:800;color:var(--amber2);letter-spacing:1px;margin-bottom:8px}
+  .svc b{font-size:17px;color:var(--green);margin-bottom:8px}
+  .svc p{font-size:14px;color:var(--muted);flex:1;margin-bottom:14px}
+  .svc .price{font-weight:800;font-size:18px;color:var(--ink);margin-bottom:12px}
+  .svc a{font-weight:700;color:var(--green3);font-size:14px}
+  .svc a:hover{color:var(--amber2)}
+
+  /* Gallery strip */
+  .photos{display:grid;grid-template-columns:2fr 1fr 1fr;gap:16px}
+  @media(max-width:760px){.photos{grid-template-columns:1fr}}
+  .photos img{border-radius:var(--radius);height:280px;width:100%;object-fit:cover;box-shadow:var(--shadow)}
+
+  /* Shop */
+  .grid.p3{grid-template-columns:repeat(auto-fill,minmax(260px,1fr))}
+  .prod{background:var(--card);border-radius:var(--radius);overflow:hidden;border:1px solid #e4e9e2;display:flex;flex-direction:column;transition:.2s}
+  .prod:hover{transform:translateY(-4px);box-shadow:var(--shadow)}
+  .prod .ph{height:150px;background:linear-gradient(135deg,#e8efe6,#d3e2d5);display:flex;align-items:center;justify-content:center}
+.prod .ph.img{background:linear-gradient(135deg,#f7f3ef,#ede7e0)}
+.prod .ph.img img{width:100%;height:100%;object-fit:contain;padding:6px}
+  .prod .body{padding:20px;display:flex;flex-direction:column;flex:1}
+  .prod b{font-size:15.5px;color:var(--green);margin-bottom:6px}
+  .prod p{font-size:13px;color:var(--muted);flex:1;margin-bottom:12px}
+  .prod .price{font-size:19px;font-weight:800;margin-bottom:12px}
+.badge{display:inline-block;font-size:11px;font-weight:800;letter-spacing:.5px;text-transform:uppercase;background:#e7f4ec;color:var(--green3);border-radius:6px;padding:3px 8px;margin-bottom:8px;width:fit-content}
+.badge.hot{background:#fdeed3;color:var(--amber2)}
+
+/* Catalog category cards */
+/* Каталог запчастей: 3 карточки в ряду */
+.grid.c3{grid-template-columns:repeat(3,1fr)}
+.grid.c3 .pcat{padding:18px}
+.grid.c3 .pcat .pic{height:170px}
+@media(max-width:900px){ .grid.c3{grid-template-columns:repeat(2,1fr)} }
+@media(max-width:520px){ .grid.c3{grid-template-columns:1fr} }
+.pcat{background:var(--card);border:1px solid #e6eae3;border-radius:18px;padding:22px;display:flex;flex-direction:column;transition:.2s;position:relative}
+.pcat:hover{transform:translateY(-3px);box-shadow:var(--shadow);border-color:#d2dbd0}
+.pcat .ic{width:46px;height:46px;border-radius:12px;background:#edf3ec;display:flex;align-items:center;justify-content:center;font-size:22px;margin-bottom:16px}
+.pcat .pic{height:215px;border-radius:12px;overflow:hidden;margin-bottom:16px;background:#ffffff;padding:6px}
+.pcat .pic img{width:100%;height:100%;object-fit:contain;transition:.35s}
+.pcat:hover .pic img{transform:scale(1.045)}
+.pcat b{font-size:17px;color:var(--ink);margin-bottom:6px}
+.pcat p{font-size:14px;color:var(--muted);flex:1;margin-bottom:18px}
+.pcat .corner{position:absolute;top:16px;right:16px;font-size:11.5px;font-weight:800;color:var(--amber2);background:#fdf3df;border-radius:6px;padding:4px 10px;z-index:2}
+/* Карточка «Компрессоры поршневые»: той же высоты, что и соседние карточки,
+   фото без искажений + полупрозрачная полоса с подписью. Наведение — как у всех карточек сетки. */
+.pcat-photo{padding:0;overflow:hidden;text-decoration:none;display:flex;flex-direction:column}
+.pcat-photo .pcat-bg{flex:1 1 auto;min-height:0;width:100%;height:auto;object-fit:cover;display:block}
+.pcat-photo .pcat-cap{flex:none;display:block;width:100%;background:rgba(13,112,174,.28);color:#14211a;font-size:16px;font-weight:800;line-height:1.3;letter-spacing:.2px;text-align:center;padding:17px 12px}
+.pcat-photo:focus-visible{outline:3px solid var(--amber);outline-offset:3px}
+.btnline{display:block;text-align:center;border:1.5px solid var(--green2);color:var(--green2);font-weight:700;font-size:14.5px;padding:11px 14px;border-radius:12px;cursor:pointer;background:transparent;transition:.15s;width:100%}
+.btnline:hover{background:var(--green2);color:#fff}
+.btnline.solid{background:var(--green2);color:#fff}
+.btnline.solid:hover{background:var(--green);border-color:var(--green)}
+
+  /* Steps */
+  .steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px;counter-reset:s}
+  .step{background:var(--card);border-radius:var(--radius);padding:24px;box-shadow:var(--shadow);position:relative;padding-top:56px}
+  .step::before{counter-increment:s;content:counter(s);position:absolute;top:18px;left:22px;font-size:30px;font-weight:800;color:#e5d3ae}
+  .step b{display:block;color:var(--green);margin-bottom:6px}
+  .step p{font-size:14px;color:var(--muted)}
+
+  /* Reviews */
+  .grid.r3{grid-template-columns:repeat(auto-fit,minmax(280px,1fr))}
+  .rev{background:var(--card);border-radius:var(--radius);padding:26px;box-shadow:var(--shadow)}
+  .rev p{font-size:15px;font-style:italic;margin-bottom:14px}
+  .rev .who{font-weight:700;color:var(--green);font-size:14px}
+  .rev .who small{display:block;color:var(--muted);font-weight:500}
+  .stars{color:var(--amber);letter-spacing:2px;margin-bottom:10px}
+
+  /* Contacts */
+  .contact{display:grid;grid-template-columns:1fr 1fr;gap:36px}
+  @media(max-width:840px){.contact{grid-template-columns:1fr}}
+  .cinfo .row{display:flex;gap:14px;align-items:flex-start;margin-bottom:18px}
+  .cinfo .lbl{font-size:13px;color:var(--muted);text-transform:uppercase;letter-spacing:.6px;font-weight:700}
+  .cinfo .val{font-size:18px;font-weight:700;color:var(--green)}
+  form{background:var(--card);border-radius:20px;padding:30px;box-shadow:var(--shadow)}
+  form h3{color:var(--green);margin-bottom:16px;font-size:20px}
+  form label{font-size:13px;font-weight:700;color:var(--muted);display:block;margin:12px 0 5px}
+  form input,form select,form textarea{width:100%;padding:12px 14px;border:1.5px solid #d8e0d4;border-radius:10px;font-size:15px;font-family:inherit;background:#fbfdfb}
+  form input:focus,form select:focus,form textarea:focus{outline:none;border-color:var(--green3)}
+  form .btn{width:100%;margin-top:18px}
+  .note{font-size:12.5px;color:var(--muted);margin-top:12px}
+
+  footer{background:var(--green);color:#b9cfbf;padding:34px 0;font-size:14px}
+  footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;align-items:center}
+  .wa-float{position:fixed;right:20px;bottom:20px;z-index:60;width:56px;height:56px;border-radius:50%;background:#25d366;display:flex;align-items:center;justify-content:center;box-shadow:0 8px 22px rgba(0,0,0,.25);transition:.2s}
+  .wa-float:hover{transform:scale(1.08)}
+
+  /* ===== Каталог работ: превью на главной ===== */
+  .wgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;padding:20px 0 6px}
+  .wcard{background:#fff;border:1px solid #e6eae3;border-radius:16px;overflow:hidden;cursor:pointer;transition:.2s;display:flex;flex-direction:column;text-decoration:none}
+  .wcard:hover{transform:translateY(-4px);box-shadow:var(--shadow);border-color:#c9d6c7}
+  .wcard:focus-visible{outline:3px solid var(--amber);outline-offset:2px}
+  .wpic{position:relative;aspect-ratio:4/3;overflow:hidden;background:#eef2ec}
+  .wpic img{width:100%;height:100%;object-fit:cover;transition:.35s}
+  .wcard:hover .wpic img{transform:scale(1.06)}
+  .wpic::after{content:'🔍';position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:28px;background:rgba(15,61,46,.34);opacity:0;transition:.25s}
+  .wcard:hover .wpic::after,.wcard:focus-visible .wpic::after{opacity:1}
+  .wcap{padding:12px 14px 14px;display:flex;flex-direction:column;gap:8px;align-items:flex-start}
+  .wcap b{font-size:14.5px;color:var(--green);line-height:1.35}
+  .wtag{font-size:11.5px;font-weight:800;letter-spacing:.4px;text-transform:uppercase;border-radius:6px;padding:3px 9px}
+  .wtag.t-install{background:#e7f4ec;color:var(--green3)}
+  .wtag.t-repair{background:#fdeed3;color:var(--amber2)}
+  .wtag.t-refuel{background:#e9eef5;color:#3b5b7a}
+  .worksall{text-align:center;padding:28px 0 4px}
+  @media(max-width:980px){ .wgrid{grid-template-columns:repeat(2,1fr)} }
+  @media(max-width:520px){ .wgrid{grid-template-columns:1fr} }
+
+  /* ===== Тележка покачивается каждые 3,2 с ===== */
+  @keyframes akCartRoll{0%,70%{transform:translateX(0)}78%{transform:translateX(2px)}84%{transform:translateX(-2px)}91%{transform:translateX(1px)}100%{transform:translateX(0)}}
+  .cartico{animation:akCartRoll 3.2s ease-in-out infinite}
+  @media(prefers-reduced-motion:reduce){ .cartico{animation:none} }
+</style>
+</head>
+<body>
+
+<!-- ======= ВНИМАНИЕ ВЛАДЕЛЬЦУ САЙТА =======
+     ✅ Телефон и WhatsApp: +7 928 880-73-35 — подставлены по всему сайту
+     1) Осталось указать: адрес цеха и e-mail — на свои
+     2) Если WhatsApp отличается от звонкового — замените 79288807335
+        в ссылках wa.me и в константе WA_PHONE / WA_ORDER_PHONE
+     3) Цены в каталоге ориентировочные — проверьте перед публикацией
+========================================= -->
+
+<div class="topbar">
+  <div class="wrap" style="justify-content:flex-end">
+    <div>Пн–Сб 8:00–17:00 · <a href="tel:+79288807335"><b>+7 928 880-73-35</b></a></div>
+  </div>
+</div>
+
+<header>
+  <div class="wrap nav">
+    <a class="logo" href="#top">Climate.si<span>23</span><small>климат спецтехники · Кубань</small></a>
+    <nav class="menu" id="menu">
+      <a href="#services">Услуги</a>
+      <a href="#shop" class="hot">Каталог запчастей<img class="cartico" src="images/cart-icon.png" alt="" width="44" height="44"></a>
+      <a href="#steps">Как работаем</a>
+      <a href="#contacts">Контакты</a>
+    </nav>
+    <a class="btn small" href="#contacts">Оставить заявку</a>
+    <button class="burger" onclick="document.getElementById('menu').classList.toggle('open')">☰</button>
+  </div>
+</header>
+
+<!-- HERO -->
+<a id="top"></a>
+<div class="hero">
+  <img class="bg" src="images/hero.jpg" alt="Трактор Fendt в поле — устанавливаем и обслуживаем климатические системы сельхозтехники">
+  <div class="wrap">
+    <span class="tag">Сельхозтехника · Комбайны · Дорожно-строительная техника</span>
+    <h1>Климатические системы спецтехники <em>под ключ</em>: ремонт, установка, обслуживание</h1>
+    <p>Выезд инженера на место стоянки техники.<br>99% запасных частей в наличие.</p>
+    <div class="cta">
+      <a class="btn" href="#contacts">Вызвать мастера</a>
+    </div>
+  </div>
+</div>
+
+<!-- STEPS -->
+<section id="steps">
+  <div class="wrap">
+    <h2 class="section">Как мы работаем</h2>
+    <p class="lead">От заявки до холодной кабины — четыре шага. 1 Оставте заявку 2 Раскожите о проблеме 3Согласуйте выезд 4 Встречайте инженера</p>
+    <div class="steps">
+      <div class="step"><b>Заявка</b><p>Звонок, MAX или форма на сайте. Уточняем технику и симптомы, называем вилку цены.</p></div>
+      <div class="step"><b>Диагностика</b><p>В цеху или на выезде: опрессовка, электрика, дефектовка узла. Смета до начала работ.</p></div>
+      <div class="step"><b>Ремонт / установка</b><p>Запчасти со своего склада — без ожидания поставок. Фотоотчёт по ходу работ.</p></div>
+      <div class="step"><b>Гарантия и ТО</b><p>Гарантия на работы и агрегаты до 12 месяцев. Напоминаем о плановом обслуживании.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- WORKS (превью: 4 фото, остальные — на отдельной странице) -->
+<section id="works">
+  <div class="wrap">
+    <h2 class="section">Наши работы</h2>
+
+    <div class="wgrid">
+      <a class="wcard" href="works.html#w-tractor-ac" aria-label="Кондиционер на трактор — открыть в каталоге работ">
+        <div class="wpic"><img src="images/works/work-tractor-ac.jpg" alt="Кондиционер на трактор — работы АгроКлимат23" loading="lazy"></div>
+        <div class="wcap"><b>Кондиционер на трактор</b><span class="wtag t-install">Установка</span></div>
+      </a>
+      <a class="wcard" href="works.html#w-combine-ac" aria-label="Кондиционер на комбайн — открыть в каталоге работ">
+        <div class="wpic"><img src="images/works/work-combine-ac.jpg" alt="Кондиционер на комбайн — работы АгроКлимат23" loading="lazy"></div>
+        <div class="wcap"><b>Кондиционер на комбайн</b><span class="wtag t-install">Установка</span></div>
+      </a>
+      <a class="wcard" href="works.html#w-kamaz" aria-label="Ремонт кондиционера на КАМАЗе — открыть в каталоге работ">
+        <div class="wpic"><img src="images/works/work-kamaz.jpg" alt="Ремонт кондиционера на КАМАЗе — работы АгроКлимат23" loading="lazy"></div>
+        <div class="wcap"><b>Ремонт кондиционера на КАМАЗе</b><span class="wtag t-repair">Ремонт</span></div>
+      </a>
+      <a class="wcard" href="works.html#w-heater-repair" aria-label="Ремонт автономных отопителей — открыть в каталоге работ">
+        <div class="wpic"><img src="images/works/work-heater-repair.jpg" alt="Ремонт автономных отопителей — работы АгроКлимат23" loading="lazy"></div>
+        <div class="wcap"><b>Ремонт автономных отопителей</b><span class="wtag t-repair">Ремонт</span></div>
+      </a>
+    </div>
+
+    <div class="worksall">
+      <a class="btn" href="works.html">Смотреть все работы (16) →</a>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="wrap">
+    <h2 class="section">Услуги</h2>
+    <p class="lead">Полный цикл: от диагностики до установки системы «с нуля». Цены ориентировочные — точную смету считаем после диагностики.</p>
+    <div class="grid s4">
+      <div class="svc"><div class="num">01</div><b>Диагностика и заправка</b><p>Компьютерная диагностика, опрессовка, вакуумирование, заправка R134a с маслом по норме.</p><div class="price">от 4 000 ₽</div><a href="#contacts" onclick="setService('Диагностика и заправка')">Заказать →</a></div>
+      <div class="svc"><div class="num">02</div><b>Ремонт климатической системы</b><p>Компрессор, конденсор, испаритель, ТРВ, шланги, электрика управления. На выезде или в цеху.</p><div class="price">от 15 000 ₽</div><a href="#contacts" onclick="setService('Ремонт климатической системы')">Заказать →</a></div>
+      <div class="svc"><div class="num">03</div><b>Установка кондиционера под ключ</b><p>Дооснащение кабин тракторов и техники без штатного климата. Комплект + монтаж + запуск.</p><div class="price">от 120 000 ₽</div><a href="#contacts" onclick="setService('Установка кондиционера под ключ')">Заказать →</a></div>
+      <div class="svc"><div class="num">04</div><b>Восстановление компрессоров</b><p>Клапаны, сальники, подшипники, шкивы. Приём убитых агрегатов в зачёт покупки (trade-in).</p><div class="price">от 12 000 ₽</div><a href="#contacts" onclick="setService('Восстановление компрессора')">Заказать →</a></div>
+      <div class="svc"><div class="num">05</div><b>Автономные отопители</b><p>Продажа и монтаж воздушных отопителей и предпусковых подогревателей. Тёплая кабина зимой.</p><div class="price">от 65 000 ₽</div><a href="#contacts" onclick="setService('Установка автономного отопителя')">Заказать →</a></div>
+      <div class="svc"><div class="num">06</div><b>Шланги высокого давления</b><p>Изготовление и переобжимка шлангов кондиционера и ГУР по образцу — от 1 часа в цеху.</p><div class="price">от 2 500 ₽</div><a href="#contacts" onclick="setService('Изготовление шланга')">Заказать →</a></div>
+      <div class="svc"><div class="num">07</div><b>Зимняя ревизия парка</b><p>Плановая дефектовка климатики всего парка зимой: к страде техника готова на 100%. Скидка 15–20%.</p><div class="price">от 9 500 ₽/машина</div><a href="#contacts" onclick="setService('Зимняя ревизия парка')">Заказать →</a></div>
+      <div class="svc"><div class="num">08</div><b>Рефрижераторные установки</b><p>Обслуживание и ремонт транспортного холода. Для перевозчиков продукции — приоритет вне очереди.</p><div class="price">от 18 000 ₽</div><a href="#contacts" onclick="setService('Рефрижераторная установка')">Заказать →</a></div>
+    </div>
+  </div>
+</section>
+
+<!-- SHOP -->
+<section id="shop">
+  <div class="wrap">
+    <h2 class="section"><a class="seclink" href="parts.html">Запчасти со склада <span>весь каталог →</span></a></h2>
+    <p class="lead">Оригинальные и аналоговые запчасти для кондиционеров сельскохозяйственной и специальной техники. Уточняйте наличие и цену — отвечаем быстро.</p>
+
+    <div class="grid c3">
+      <a class="pcat pcat-photo" href="compressors.html" aria-label="Компрессоры поршневые — открыть каталог компрессоров">
+          <img class="pcat-bg" src="images/cat-compressors.jpg" alt="Поршневые компрессоры кондиционеров для сельхоз- и спецтехники" loading="lazy">
+          <span class="pcat-cap">Компрессоры поршневые</span>
+        </a>
+
+      <div class="pcat">
+          <div class="pic"><img src="images/electric-compressors.jpg" alt="Электрические компрессоры с электроприводом"></div>
+          <b>Электрические компрессоры</b>
+          <p>Компрессоры с электроприводом для техники без механического отбора мощности.</p>
+          <button type="button" class="btnline" onclick="order('Электрический компрессор')">Уточнить наличие</button>
+        </div>
+
+      <div class="pcat">
+          <div class="pic"><img src="images/compressor-parts.jpg" alt="Запчасти к компрессорам: клапаны, подшипники, уплотнения"></div>
+          <b>Запчасти к компрессорам</b>
+          <p>Клапаны, прокладки, подшипники, шкивы и уплотнения — всё для восстановления своими силами или в нашем цеху.</p>
+          <button type="button" class="btnline" onclick="order('Запчасти к компрессору')">Уточнить наличие</button>
+        </div>
+
+      <div class="pcat">
+          <span class="corner">Оригинал</span>
+          <div class="ic">🧩</div>
+          <b>Запчасти BOCK / Bitzer</b>
+          <p>Оригинальные и аналоговые запчасти для компрессоров BOCK и Bitzer.</p>
+          <button type="button" class="btnline" onclick="order('Запчасти BOCK / Bitzer')">Уточнить наличие</button>
+        </div>
+
+      <div class="pcat">
+          <div class="ic">❄️</div>
+          <b>Запчасти для рефрижераторов</b>
+          <p>Компоненты для рефрижераторных установок: компрессоры, конденсаторы, испарители.</p>
+          <button type="button" class="btnline" onclick="order('Запчасти для рефрижератора')">Уточнить наличие</button>
+        </div>
+
+      <div class="pcat">
+          <div class="ic">🌀</div>
+          <b>Вентиляторы</b>
+          <p>Осевые и центробежные вентиляторы для конденсоров и испарителей.</p>
+          <button type="button" class="btnline" onclick="order('Вентилятор конденсора/испарителя')">Уточнить наличие</button>
+        </div>
+    </div>
+    <a class="catall" href="parts.html">Смотреть весь каталог — 27 позиций с ценами →</a>
+    <p class="note" style="margin-top:18px">Не нашли позицию? Пришлите фото шильдика агрегата в WhatsApp — подберём аналог за 30 минут.</p>
+  </div>
+</section>
+
+<!-- PHOTOS -->
+<section>
+  <div class="wrap">
+    <h2 class="section">Наш цех и выезды</h2>
+    <p class="lead">Свой участок восстановления компрессоров, обжимной пресс для шлангов и полностью укомплектованные сервисные машины.</p>
+    <div class="photos">
+      <img src="images/compressors-shop.jpg" alt="Склад компрессоров и запчастей в нашем цеху">
+      <img src="images/heater.jpg" alt="Установка автономного отопителя в кабину трактора">
+      <img src="images/compressor.jpg" alt="Восстановленные компрессоры и шланги на складе">
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section>
+  <div class="wrap">
+    <h2 class="section">Что говорят хозяйства</h2>
+    <p class="lead">Основа нашего потока — повторные обращения и рекомендации соседям по району.</p>
+    <div class="grid r3">
+      <div class="rev"><div class="stars">★★★★★</div><p>«Сломался компрессор на Акросе в разгар уборки. Приехали в тот же вечер, к утру комбайн уже был в поле. Спасли уборочную.»</p><div class="who">КФХ «Нива»<small>Краснодарский край, Каневской район</small></div></div>
+      <div class="rev"><div class="stars">★★★★★</div><p>«Перевели на зимнюю ревизию весь парк — 14 машин. К сезону ни одной остановки по климату. Дешевле, чем чиниться в июле.»</p><div class="who">Агрофирма «Заря»<small>парк 14 единиц техники</small></div></div>
+      <div class="rev"><div class="stars">★★★★★</div><p>«Ставили автономки на катки и погрузчики. Зимой бригады работают в тепле, техника не крутит холостую по ночам.»</p><div class="who">Дорожно-строительная компания<small>Краснодар</small></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACTS -->
+<section id="contacts">
+  <div class="wrap contact">
+    <div class="cinfo">
+      <h2 class="section">Контакты</h2>
+      <p class="lead">Позвоните или оставьте заявку — перезвоним в течение 15 минут в рабочее время.</p>
+      <div class="row"><div style="font-size:22px">📞</div><div><div class="lbl">Телефон / WhatsApp</div><div class="val"><a href="tel:+79288807335">+7 928 880-73-35</a></div></div></div>
+      <div class="row"><div style="font-size:22px">✉️</div><div><div class="lbl">E-mail</div><div class="val"><a href="mailto:zaiavka@agroklimat23.ru">zaiavka@agroklimat23.ru</a></div></div></div>
+      <div class="row"><div style="font-size:22px">📍</div><div><div class="lbl">Цех и склад</div><div class="val">г. Краснодар, пр-кт (указать адрес)</div></div></div>
+      <div class="row"><div style="font-size:22px">🕗</div><div><div class="lbl">Режим работы</div><div class="val">Пн–Сб 8:00–17:00<br>Май–август: выезды 24/7</div></div></div>
+    </div>
+    <form id="leadForm">
+      <h3>Оставить заявку</h3>
+      <label>Ваше имя</label>
+      <input type="text" id="fName" placeholder="Иван" required>
+      <label>Телефон</label>
+      <input type="tel" id="fPhone" placeholder="+7 ___ ___-__-__" required>
+      <label>Техника (марка, модель)</label>
+      <input type="text" id="fTech" placeholder="Например: комбайн Acros 580, МТЗ-1221">
+      <label>Что нужно</label>
+      <select id="fService">
+        <option>Подобрать запчасть / товар</option>
+        <option>Диагностика и заправка</option>
+        <option>Ремонт климатической системы</option>
+        <option>Установка кондиционера под ключ</option>
+        <option>Восстановление компрессора</option>
+        <option>Установка автономного отопителя</option>
+        <option>Изготовление шланга</option>
+        <option>Зимняя ревизия парка</option>
+        <option>Рефрижераторная установка</option>
+      </select>
+      <label>Комментарий</label>
+      <textarea id="fMsg" rows="3" placeholder="Опишите проблему или укажите позицию товара"></textarea>
+      <button class="btn" type="submit">Отправить в WhatsApp</button>
+      <p class="note">Нажимая кнопку, вы соглашаетесь с обработкой персональных данных. Мы не передаём данные третьим лицам.</p>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div><b style="color:#fff">АгроКлимат23</b> · климатические системы спецтехники<br>© <span id="year"></span> · Краснодарский край</div>
+    <div>Работаем с юрлицами и КФХ · НДС / без НДС · Договор, ТТН, акт</div>
+  </div>
+</footer>
+
+<a class="wa-float" id="waFloat" href="#" aria-label="WhatsApp">
+  <svg width="30" height="30" viewBox="0 0 24 24" fill="#fff"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38c1.45.79 3.08 1.21 4.79 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2zm.01 18.13c-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.26 8.26 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.24-8.24 2.2 0 4.27.86 5.82 2.42a8.183 8.183 0 0 1 2.41 5.83c.02 4.54-3.68 8.23-8.22 8.23zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.16.24-.64.8-.78.97-.14.16-.29.18-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.01-.38.11-.51.11-.11.25-.29.37-.43.12-.14.16-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.41-.42-.56-.43-.14-.01-.31-.01-.48-.01-.16 0-.43.06-.66.31-.22.25-.86.85-.86 2.07 0 1.22.89 2.4 1.01 2.56.12.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.14-1.18-.06-.1-.22-.16-.47-.28z"/></svg>
+</a>
+
+<script>
+// ====== ЗАМЕНИТЕ: реальный номер WhatsApp в международном формате без + ======
+const WA_PHONE = '79288807335';
+
+// Плавающая кнопка WhatsApp
+document.getElementById('waFloat').href = 'https://wa.me/' + WA_PHONE + '?text=' + encodeURIComponent('Здравствуйте! Нужна помощь с климатикой техники.');
+
+
+
+// Подстановка услуги/товара в форму
+function setService(name){
+  const sel = document.getElementById('fService');
+  [...sel.options].forEach(o => { if(o.text===name) sel.value = o.text; });
+  document.getElementById('fTech').focus();
+}
+function order(item){
+  document.getElementById('fService').value = 'Подобрать запчасть / товар';
+  document.getElementById('fMsg').value = 'Интересует: ' + item;
+  document.getElementById('contacts').scrollIntoView({behavior:'smooth'});
+  document.getElementById('fName').focus();
+}
+
+// Отправка заявки в WhatsApp (без сервера).
+// Позже можно заменить на fetch() к вашему бэкенду или сервису приёма лидов.
+document.getElementById('leadForm').addEventListener('submit', function(e){
+  e.preventDefault();
+  const t = 'Заявка с сайта АгроКлимат23%0A'
+    + 'Имя: ' + encodeURIComponent(fName.value) + '%0A'
+    + 'Телефон: ' + encodeURIComponent(fPhone.value) + '%0A'
+    + 'Техника: ' + encodeURIComponent(fTech.value || '—') + '%0A'
+    + 'Услуга: ' + encodeURIComponent(fService.value) + '%0A'
+    + 'Комментарий: ' + encodeURIComponent(fMsg.value || '—');
+  window.open('https://wa.me/' + WA_PHONE + '?text=' + t, '_blank');
+});
+
+document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "AutoRepair",
+  "name": "АгроКлимат23",
+  "description": "Установка, ремонт и обслуживание климатических систем сельскохозяйственной и дорожно-строительной техники",
+  "areaServed": "Краснодарский край",
+  "address": {"@type": "PostalAddress", "addressLocality": "Краснодар", "addressCountry": "RU"},
+  "telephone": "+7 928 880-73-35",
+  "openingHours": "Mo-Sa 08:00-20:00",
+  "priceRange": "₽₽"
+}
+</script>
+
+
+
+</body>
+</html>

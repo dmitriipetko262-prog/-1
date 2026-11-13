@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Наши работы — установка и ремонт кондиционеров на тракторах и комбайнах | Climate-si</title>
+<meta name="description" content="Фото реальных работ: установка и ремонт кондиционеров на тракторах МТЗ, Claas, Беларус, Т-150, комбайнах и КАМАЗах, ремонт автономных отопителей. Выезд по Краснодарскому краю.">
+<style>
+  :root{
+    --green:#0f3d2e; --green2:#14532d; --green3:#1d6a44;
+    --amber:#f59e0b; --amber2:#d97706;
+    --bg:#f4f6f2; --card:#ffffff; --ink:#14211a; --muted:#5c6b60;
+    --radius:16px; --shadow:0 10px 30px rgba(15,61,46,.10);
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:'Segoe UI',system-ui,-apple-system,Roboto,Arial,sans-serif;color:var(--ink);background:var(--bg);line-height:1.55}
+  img{max-width:100%;display:block}
+  a{text-decoration:none;color:inherit}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 20px}
+  .btn{display:inline-block;background:var(--amber);color:#1c1200;font-weight:700;padding:13px 24px;border-radius:12px;border:none;cursor:pointer;font-size:15.5px;transition:.2s;box-shadow:0 6px 18px rgba(245,158,11,.35)}
+  .btn:hover{background:var(--amber2);transform:translateY(-2px)}
+
+  .topbar{background:var(--green);color:#cfe3d6;font-size:14px;padding:8px 0}
+  .topbar .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+  .topbar b{color:#fff}
+  .topbar a:hover{color:var(--amber)}
+
+  header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.96);backdrop-filter:blur(8px);box-shadow:0 2px 14px rgba(0,0,0,.07)}
+  .nav{display:flex;align-items:center;justify-content:space-between;padding:14px 0;gap:14px;flex-wrap:wrap}
+  .logo{font-size:22px;font-weight:800;color:var(--green)}
+  .logo span{color:var(--amber)}
+  .logo small{display:block;font-size:11px;font-weight:600;color:var(--muted);letter-spacing:.6px;text-transform:uppercase}
+  .back{font-weight:700;color:var(--green3);font-size:15px}
+  .back:hover{color:var(--amber2)}
+
+  .crumbs{padding:22px 0 0;font-size:13.5px;color:var(--muted)}
+  .crumbs a{color:var(--green3);font-weight:600}
+  .crumbs a:hover{color:var(--amber2)}
+
+  .pagehead{padding:26px 0 8px}
+  .pagehead .kicker{color:var(--amber2);font-weight:800;letter-spacing:1.4px;font-size:13px;text-transform:uppercase;margin-bottom:8px}
+  .pagehead h1{font-size:clamp(26px,3.6vw,40px);color:var(--green);margin-bottom:10px}
+  .pagehead p{color:var(--muted);max-width:760px;font-size:16px}
+
+  .filters{display:flex;gap:10px;flex-wrap:wrap;padding:22px 0 6px}
+  .chip{border:1.5px solid #d5ddd2;background:#fff;color:var(--green);font-weight:700;font-size:14px;padding:9px 18px;border-radius:999px;cursor:pointer;transition:.15s}
+  .chip:hover{border-color:var(--green3)}
+  .chip.active{background:var(--green2);border-color:var(--green2);color:#fff}
+
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:20px;padding:26px 0 10px}
+  .ccard{background:var(--card);border:1px solid #e6eae3;border-radius:18px;padding:22px;display:flex;flex-direction:column;position:relative;transition:.2s;cursor:pointer}
+  .ccard:hover{transform:translateY(-4px);box-shadow:var(--shadow);border-color:#c9d6c7}
+.ccard .pic{height:165px;border-radius:12px;background:#fff;overflow:hidden;margin-bottom:14px;padding:4px}
+.ccard .pic img{width:100%;height:100%;object-fit:contain;transition:.3s}
+.ccard:hover .pic img{transform:scale(1.05)}
+
+/* Карусель фото в карточке */
+.ccard .pic.car{position:relative;padding:0}
+.ccard .track{display:flex;height:100%;transition:transform .5s ease}
+.ccard .track img{min-width:100%;width:100%;height:100%;object-fit:contain;transition:none}
+.ccard:hover .pic.car img{transform:none}
+.ccard .cnav{position:absolute;top:50%;transform:translateY(-50%);width:32px;height:32px;border-radius:50%;border:none;background:var(--amber);color:#1c1200;font-size:18px;font-weight:800;line-height:1;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 3px 12px rgba(0,0,0,.3);transition:.15s;z-index:6}
+.ccard .cnav:hover{background:var(--amber2);transform:translateY(-50%) scale(1.1)}
+.ccard .cnav.prev{left:7px}
+.ccard .cnav.next{right:7px}
+.ccard .dots{position:absolute;bottom:7px;left:0;right:0;display:flex;gap:6px;justify-content:center;z-index:3}
+.ccard .dots i{width:7px;height:7px;border-radius:50%;background:rgba(15,61,46,.25)}
+.ccard .dots i.on{background:var(--green2)}
+
+/* Характеристики по наведению */
+/* Карточка с выпадающей панелью: фото крупно сверху, список выезжает ВНИЗ под карточку */
+.ccard.drop .pic{height:auto;aspect-ratio:1/1;padding:0;margin:0 -22px 14px;border-radius:0}
+.ccard.drop:hover{z-index:20}
+.ccard .specs{position:absolute;top:calc(100% - 10px);left:0;right:0;background:rgba(255,255,255,.98);border:1px solid #e6eae3;border-top:none;border-radius:0 0 18px 18px;padding:20px 22px;z-index:25;opacity:0;visibility:hidden;transform:translateY(-8px);transition:opacity .25s ease,transform .25s ease,visibility .25s;display:flex;flex-direction:column;box-shadow:0 20px 34px rgba(15,61,46,.16)}
+.ccard:hover .specs,.ccard:active .specs{opacity:1;visibility:visible;transform:translateY(0)}
+.ccard .specs .stitle{font-size:19px;font-weight:800;color:var(--ink);line-height:1.2}
+.ccard .specs .savail{font-size:13px;font-weight:700;color:#16a34a;margin:4px 0 10px}
+.ccard .specs .shead{font-size:11.5px;font-weight:800;letter-spacing:1.2px;color:var(--muted);text-transform:uppercase;margin-bottom:6px}
+.ccard .specs .row{display:flex;justify-content:space-between;gap:12px;font-size:13.5px;padding:6px 0;border-bottom:1px dashed #e3e8e0}
+.ccard .specs .row span{color:var(--muted)}
+.ccard .specs .row b{color:var(--ink);font-weight:700;text-align:right;white-space:nowrap}
+.ccard .specs .shint{margin-top:8px;padding-top:12px;font-weight:800;font-size:14.5px;color:var(--amber2)}
+.ccard .specs .stext{font-size:13.5px;color:var(--muted);margin-bottom:12px;line-height:1.5}
+.ccard .specs .push{margin-top:auto}
+.ccard .specs .addcart{margin-top:14px;background:var(--amber);color:#1c1200;border:none;font-weight:800;font-size:15px;padding:12px;border-radius:12px;cursor:pointer;transition:.15s;width:100%}
+.ccard .specs .addcart:hover{background:var(--amber2);transform:translateY(-1px)}
+/* Счётчик количества на карточке */
+.qtyrow{display:flex;gap:10px;margin-top:14px;align-items:stretch}
+.qtyrow .addcart{margin-top:0;flex:1;width:auto}
+.qty{display:flex;align-items:stretch;border:1.5px solid #d8e0d4;border-radius:12px;overflow:hidden;flex:none;background:#fff}
+.qty button{width:31px;border:none;background:#f2f6ef;color:var(--green);font-size:17px;font-weight:800;cursor:pointer;transition:.15s;padding:0}
+.qty button:hover{background:#e4ecdf;color:var(--amber2)}
+.qty input{width:42px;border:none;text-align:center;font-size:15px;font-weight:800;color:var(--ink);background:#fff;font-family:inherit;appearance:textfield;-moz-appearance:textfield}
+.qty input:focus{outline:none;background:#fdf8ee}
+.qty input::-webkit-outer-spin-button,.qty input::-webkit-inner-spin-button{-webkit-appearance:none;margin:0}
+.cart{font-weight:800;color:var(--green2);font-size:20px;position:relative;display:inline-flex;align-items:center;background:#fdf8ee;border:2px solid var(--amber);border-radius:999px;padding:12px 22px;transition:.15s;box-shadow:0 6px 16px rgba(245,158,11,.32)}
+.cart:hover{color:#1c1200;background:var(--amber);transform:translateY(-1px);box-shadow:0 7px 18px rgba(245,158,11,.42)}
+.cart .ci{font-size:38px;line-height:1;margin-right:12px}
+.cart b{display:inline-block;background:var(--amber);color:#1c1200;font-size:17px;min-width:36px;height:36px;line-height:36px;text-align:center;border-radius:999px;padding:0 10px;margin-left:13px;box-shadow:0 3px 9px rgba(245,158,11,.6)}
+.cart:hover b{background:#1c1200;color:var(--amber)}
+@media(max-width:420px){ .cart{font-size:17px;padding:9px 15px} .cart .ci{font-size:30px;margin-right:9px} .cart b{font-size:15px;min-width:28px;height:28px;line-height:28px} }
+
+/* Выезжающая корзина */
+.cartOverlay{position:fixed;inset:0;background:rgba(13,32,22,.45);z-index:80;opacity:0;visibility:hidden;transition:.25s}
+.cartOverlay.open{opacity:1;visibility:visible}
+.cartDrawer{position:fixed;top:0;right:0;bottom:0;width:min(380px,94vw);background:#fff;z-index:90;transform:translateX(105%);transition:transform .32s ease;display:flex;flex-direction:column;box-shadow:-12px 0 40px rgba(0,0,0,.18)}
+.cartDrawer.open{transform:translateX(0)}
+.cdHead{display:flex;justify-content:space-between;align-items:center;padding:18px 20px;border-bottom:1px solid #eaeef0}
+.cdHead b{font-size:19px;color:var(--green)}
+.cdHead button{border:none;background:#eef3ec;width:32px;height:32px;border-radius:10px;cursor:pointer;font-size:14px}
+.cdList{flex:1;overflow-y:auto;padding:10px 20px}
+.cdItem{display:flex;justify-content:space-between;gap:10px;align-items:center;padding:12px 0;border-bottom:1px dashed #e6eae3;font-size:14.5px}
+.cdItem .nm{flex:1;min-width:0}
+.cdItem .cdDel{border:none;background:#fdebec;color:#c0392b;width:26px;height:26px;border-radius:8px;cursor:pointer;flex:none;font-size:12px}
+.cdThumb{position:relative;flex:none;width:28px;height:28px;border:1.5px solid #d8e0d4;border-radius:8px;display:flex;align-items:center;justify-content:center;background:#f8faf6;color:var(--green3);cursor:pointer;transition:.15s}
+.cdThumb:hover{border-color:var(--amber);color:var(--amber2);background:#fdf8ee}
+#cdHover{position:fixed;width:180px;height:180px;background:#fff;border:1px solid #e6eae3;border-radius:14px;box-shadow:0 16px 38px rgba(15,61,46,.25);padding:8px;z-index:95;display:none;pointer-events:none}
+#cdHover img{width:100%;height:100%;object-fit:contain}
+.cdQty{display:flex;align-items:center;gap:4px;flex:none}
+.cdQty button{border:1.5px solid #d8e0d4;background:#f2f6ef;color:var(--green);width:24px;height:24px;border-radius:7px;cursor:pointer;font-size:14px;font-weight:800;line-height:1;padding:0}
+.cdQty button:hover{border-color:var(--amber);color:var(--amber2)}
+.cdQty span{min-width:42px;text-align:center;font-weight:800;font-size:13px;color:var(--ink)}
+.cdTotal{text-align:right;font-size:14px;color:var(--muted);padding-top:10px}
+.cdTotal b{color:var(--green)}
+.cdEmpty{color:var(--muted);text-align:center;padding:44px 12px;font-size:14.5px;line-height:1.6}
+.cdFoot{padding:16px 20px;border-top:1px solid #eaeef0;display:flex;flex-direction:column;gap:10px}
+.btnSend{background:var(--amber);color:#1c1200;border:none;font-weight:800;font-size:15px;padding:14px;border-radius:12px;cursor:pointer;transition:.15s}
+.btnSend:hover{background:var(--amber2)}
+.btnClear{background:transparent;border:1.5px solid #d5ddd2;color:var(--muted);font-weight:700;padding:11px;border-radius:12px;cursor:pointer;font-size:14px}
+.btnClear:hover{border-color:#c0392b;color:#c0392b}
+.cdField{display:flex;flex-direction:column;gap:8px;margin-bottom:10px}
+.cdField input,.cdField textarea{padding:10px 12px;border:1.5px solid #d8e0d4;border-radius:10px;font-size:14px;font-family:inherit;background:#fbfdfb}
+.cdField input:focus,.cdField textarea:focus{outline:none;border-color:var(--green3)}
+.coRadio{display:flex;flex-direction:column;gap:6px;font-size:13.5px}
+.coRadio label{display:flex;gap:8px;align-items:flex-start;cursor:pointer;color:var(--ink)}
+.coRadio input{accent-color:var(--green2);margin-top:2px}
+.cdNote{font-size:12.5px;color:var(--muted);background:#f2f6ef;border-radius:10px;padding:9px 11px;line-height:1.45;margin-bottom:10px}
+  .ccard .tag{position:absolute;top:16px;right:16px;font-size:11px;font-weight:800;letter-spacing:.4px;text-transform:uppercase;border-radius:6px;padding:3px 9px;z-index:2}
+  .tag.new{background:#e7f4ec;color:var(--green3)}
+  .tag.reman{background:#fdeed3;color:var(--amber2)}
+  .ccard b.t{font-size:17.5px;color:var(--green);margin-bottom:4px}
+  .ccard .price{align-self:flex-end;margin-top:auto;background:var(--amber);color:#1c1200;font-weight:800;font-size:17px;padding:8px 16px;border-radius:12px;box-shadow:0 5px 14px rgba(245,158,11,.35);letter-spacing:.2px;line-height:1.2;border:none;cursor:pointer;font-family:inherit;display:inline-flex;align-items:center;gap:8px;transition:.15s}
+  .ccard .price:hover{background:var(--amber2);transform:translateY(-1px);box-shadow:0 7px 18px rgba(245,158,11,.5)}
+  .ccard .price .bk{font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.9px;color:rgba(28,18,0,.72)}
+
+  /* Всплывающее сообщение после «Купить» */
+  .buyPop{position:fixed;left:50%;bottom:26px;transform:translateX(-50%) translateY(18px);background:#fff;border:1px solid #e6eae3;border-radius:16px;box-shadow:0 18px 44px rgba(15,61,46,.28);padding:16px 18px;z-index:100;display:flex;flex-direction:column;gap:11px;min-width:290px;max-width:92vw;opacity:0;visibility:hidden;transition:.22s}
+  .buyPop.open{opacity:1;visibility:visible;transform:translateX(-50%) translateY(0)}
+  .buyPop .bmsg{font-weight:700;font-size:14.5px;color:var(--ink);line-height:1.35}
+  .buyPop .brow{display:flex;gap:9px}
+  .buyPop button{flex:1;padding:11px 12px;border-radius:11px;font-size:14px;font-weight:800;cursor:pointer;font-family:inherit;transition:.15s}
+  .buyPop .bgo{background:var(--amber);color:#1c1200;border:none}
+  .buyPop .bgo:hover{background:var(--amber2)}
+  .buyPop .bcont{background:#eef3ec;color:var(--green);border:1.5px solid #d8e0d4}
+  .buyPop .bcont:hover{border-color:var(--green3)}
+  .ccard .app{font-size:13px;font-weight:700;color:var(--amber2);margin-bottom:8px}
+  .ccard p{font-size:14px;color:var(--muted);flex:1;margin-bottom:14px}
+  .ccard .go{font-weight:800;font-size:14.5px;color:var(--green3)}
+  .ccard:hover .go{color:var(--amber2)}
+
+  .ctastrip{background:var(--green2);color:#fff;border-radius:18px;padding:28px;display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap;margin:36px 0}
+  .ctastrip b{font-size:20px;display:block;margin-bottom:4px}
+  .ctastrip span{color:#cfe3d3;font-size:14.5px}
+
+  footer{background:var(--green);color:#b9cfbf;padding:30px 0;font-size:14px;margin-top:50px}
+  footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;align-items:center}
+  footer a{color:#fff;font-weight:600}
+  footer a:hover{color:var(--amber)}
+
+  .tag.order{background:#e9eef5;color:#3b5b7a}
+  .price.nocost{background:var(--green2);color:#fff;box-shadow:0 5px 14px rgba(15,61,46,.28)}
+  .price.nocost:hover{background:var(--green3)}
+  .searchbar{margin-left:auto;display:flex;align-items:center;gap:8px;background:#fff;border:1.5px solid #d5ddd2;border-radius:999px;padding:7px 16px}
+  .searchbar input{border:none;outline:none;font-family:inherit;font-size:14px;color:var(--ink);width:210px;background:transparent}
+  .searchbar input::placeholder{color:#9aa79f}
+  .searchbar svg{flex:none;color:var(--muted)}
+  .found{font-size:13.5px;color:var(--muted);padding:0 0 6px}
+  .nores{display:none;text-align:center;padding:60px 20px;color:var(--muted)}
+  .nores b{display:block;font-size:20px;color:var(--green);margin-bottom:8px}
+  @media(max-width:640px){ .searchbar{margin-left:0;width:100%} .searchbar input{width:100%} }
+  .cathead{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;padding:34px 0 0}
+  .cathead h2{font-size:22px;color:var(--green)}
+  .cathead span{font-size:13.5px;color:var(--muted)}
+
+  .wgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(255px,1fr));gap:18px;padding:12px 0 6px}
+  .wcard{background:#fff;border:1px solid #e6eae3;border-radius:16px;overflow:hidden;cursor:pointer;transition:.2s;display:flex;flex-direction:column}
+  .wcard:hover{transform:translateY(-4px);box-shadow:var(--shadow);border-color:#c9d6c7}
+  .wcard:focus-visible{outline:3px solid var(--amber);outline-offset:2px}
+  .wpic{position:relative;aspect-ratio:4/3;overflow:hidden;background:#eef2ec}
+  .wpic img{width:100%;height:100%;object-fit:cover;transition:.35s}
+  .wcard:hover .wpic img{transform:scale(1.06)}
+  .wpic::after{content:'🔍';position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:28px;background:rgba(15,61,46,.34);opacity:0;transition:.25s}
+  .wcard:hover .wpic::after,.wcard:focus-visible .wpic::after{opacity:1}
+  /* Лайтбокс */
+  .lb{position:fixed;inset:0;z-index:120;background:rgba(11,26,18,.92);display:none;align-items:center;justify-content:center;padding:24px}
+  .lb.open{display:flex}
+  .lbfig{margin:0;max-width:min(1000px,94vw);text-align:center;color:#fff}
+  .lbfig img{max-width:100%;max-height:76vh;border-radius:14px;box-shadow:0 24px 60px rgba(0,0,0,.5);background:#000}
+  .lbfig figcaption{margin-top:14px;display:flex;flex-direction:column;gap:4px}
+  .lbfig b{font-size:17px}
+  .lbfig span{font-size:13px;color:#a9c4b3}
+  .lbx{position:absolute;top:18px;right:22px;width:44px;height:44px;border-radius:50%;border:none;background:rgba(255,255,255,.14);color:#fff;font-size:20px;cursor:pointer;transition:.15s}
+  .lbx:hover{background:var(--amber);color:#1c1200}
+  .lbnav{position:absolute;top:50%;transform:translateY(-50%);width:52px;height:52px;border-radius:50%;border:none;background:rgba(255,255,255,.14);color:#fff;font-size:30px;line-height:1;cursor:pointer;transition:.15s}
+  .lbnav:hover{background:var(--amber);color:#1c1200}
+  .lbnav.lbprev{left:18px}
+  .lbnav.lbnext{right:18px}</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="wrap" style="justify-content:flex-end">
+    <div>Ежедневно 8:00–18:00 · <a href="tel:+79288807335"><b>+7 928 880-73-35</b></a></div>
+  </div>
+</div>
+
+<header>
+  <div class="wrap nav">
+    <a class="logo" href="index.html">Climate<span>.si</span><small>климатические системы спецтехники</small></a>
+    <div style="display:flex;gap:20px;align-items:center">
+      <a class="back" href="index.html#shop">Запчасти со склада →</a>
+      <a class="back" href="index.html">← На главную</a>
+    </div>
+  </div>
+</header>
+
+<div class="wrap crumbs"><a href="index.html">Главная</a> / Наши работы</div>
+
+<div class="wrap pagehead">
+  <div class="kicker">Тракторы · Комбайны · Грузовая техника · Отопители</div>
+  <h1>Наши работы</h1>
+</div>
+
+<div class="wrap">
+  <div class="wgrid" id="wGrid">
+      <div class="wcard" id="w-ustanovka-konditsionera-na-traktor" role="button" tabindex="0" data-src="images/works/ustanovka-konditsionera-na-traktor.jpg" data-title="Установка кондиционера на трактор" aria-label="Открыть фото: Установка кондиционера на трактор">
+        <div class="wpic"><img src="images/works/ustanovka-konditsionera-na-traktor.jpg" alt="Установка кондиционера на трактор — работы Climate-si, Краснодарский край" title="Установка кондиционера на трактор — Climate-si" width="1024" height="768" loading="lazy"></div>
+      </div>
+      <div class="wcard" id="w-konditsioner-na-traktor-mtz" role="button" tabindex="0" data-src="images/works/konditsioner-na-traktor-mtz.jpg" data-title="Кондиционер на трактор МТЗ" aria-label="Открыть фото: Кондиционер на трактор МТЗ">
+        <div class="wpic"><img src="images/works/konditsioner-na-traktor-mtz.jpg" alt="Кондиционер на трактор МТЗ — работы Climate-si, Краснодарский край" title="Кондиционер на трактор МТЗ — Climate-si" width="1024" height="768" loading="lazy"></div>
+      </div>
+      <div class="wcard" id="w-konditsioner-na-traktor-t-150" role="button" tabindex="0" data-src="images/works/konditsioner-na-traktor-t-150.jpg" data-title="Кондиционер на трактор Т-150: установка и ремонт" aria-label="Открыть фото: Кондиционер на трактор Т-150: установка и ремонт">
+        <div class="wpic"><img src="images/works/konditsioner-na-traktor-t-150.jpg" alt="Кондиционер на трактор Т-150: установка и ремонт — работы Climate-si, Краснодарский край" title="Кондиционер на трактор Т-150: установка и ремонт — Climate-si" width="1024" height="768" loading="lazy"></div>
+      </div>
+      <div class="wcard" id="w-konditsioner-na-kombayn" role="button" tabindex="0" data-src="images/works/konditsioner-na-kombayn.jpg" data-title="Кондиционер на комбайн" aria-label="Открыть фото: Кондиционер на комбайн">
+        <div class="wpic"><img src="images/works/konditsioner-na-kombayn.jpg" alt="Кондиционер на комбайн — работы Climate-si, Краснодарский край" title="Кондиционер на комбайн — Climate-si" width="1024" height="768" loading="lazy"></div>
+      </div>
+      <div class="wcard" id="w-zapravka-konditsionera-kombayna" role="button" tabindex="0" data-src="images/works/zapravka-konditsionera-kombayna.jpg" data-title="Заправка кондиционера комбайна" aria-label="Открыть фото: Заправка кондиционера комбайна">
+        <div class="wpic"><img src="images/works/zapravka-konditsionera-kombayna.jpg" alt="Заправка кондиционера комбайна — работы Climate-si, Краснодарский край" title="Заправка кондиционера комбайна — Climate-si" width="1024" height="768" loading="lazy"></div>
+      </div>
+      <div class="wcard" id="w-zapravka-konditsionera-pogruzchika" role="button" tabindex="0" data-src="images/works/zapravka-konditsionera-pogruzchika.jpg" data-title="Заправка кондиционера погрузчика" aria-label="Открыть фото: Заправка кондиционера погрузчика">
+        <div class="wpic"><img src="images/works/zapravka-konditsionera-pogruzchika.jpg" alt="Заправка кондиционера погрузчика — работы Climate-si, Краснодарский край" title="Заправка кондиционера погрузчика — Climate-si" width="1024" height="768" loading="lazy"></div>
+      </div>
+      <div class="wcard" id="w-zapravka-konditsionera-freonom" role="button" tabindex="0" data-src="images/works/zapravka-konditsionera-freonom.jpg" data-title="Заправка кондиционера фреоном" aria-label="Открыть фото: Заправка кондиционера фреоном">
+        <div class="wpic"><img src="images/works/zapravka-konditsionera-freonom.jpg" alt="Заправка кондиционера фреоном — работы Climate-si, Краснодарский край" title="Заправка кондиционера фреоном — Climate-si" width="1024" height="768" loading="lazy"></div>
+      </div>
+      <div class="wcard" id="w-servisnoe-obsluzhivanie-versatile-550" role="button" tabindex="0" data-src="images/works/servisnoe-obsluzhivanie-versatile-550.jpg" data-title="Сервисное обслуживание Versatile 550" aria-label="Открыть фото: Сервисное обслуживание Versatile 550">
+        <div class="wpic"><img src="images/works/servisnoe-obsluzhivanie-versatile-550.jpg" alt="Сервисное обслуживание Versatile 550 — работы Climate-si, Краснодарский край" title="Сервисное обслуживание Versatile 550 — Climate-si" width="1024" height="768" loading="lazy"></div>
+      </div>
+      <div class="wcard" id="w-remont-konditsionera-claas" role="button" tabindex="0" data-src="images/works/remont-konditsionera-claas.jpg" data-title="Ремонт кондиционера на тракторе Claas" aria-label="Открыть фото: Ремонт кондиционера на тракторе Claas">
+        <div class="wpic"><img src="images/works/remont-konditsionera-claas.jpg" alt="Ремонт кондиционера на тракторе Claas — работы Climate-si, Краснодарский край" title="Ремонт кондиционера на тракторе Claas — Climate-si" width="1024" height="768" loading="lazy"></div>
+      </div>
+      <div class="wcard" id="w-remont-konditsionera-na-kombayne" role="button" tabindex="0" data-src="images/works/remont-konditsionera-na-kombayne.jpg" data-title="Ремонт кондиционера на комбайне" aria-label="Открыть фото: Ремонт кондиционера на комбайне">
+        <div class="wpic"><img src="images/works/remont-konditsionera-na-kombayne.jpg" alt="Ремонт кондиционера на комбайне — работы Climate-si, Краснодарский край" title="Ремонт кондиционера на комбайне — Climate-si" width="1024" height="768" loading="lazy"></div>
+      </div>
+      <div class="wcard" id="w-remont-konditsionera-belarus-1221" role="button" tabindex="0" data-src="images/works/remont-konditsionera-belarus-1221.jpg" data-title="Ремонт кондиционера Беларус 1221" aria-label="Открыть фото: Ремонт кондиционера Беларус 1221">
+        <div class="wpic"><img src="images/works/remont-konditsionera-belarus-1221.jpg" alt="Ремонт кондиционера Беларус 1221 — работы Climate-si, Краснодарский край" title="Ремонт кондиционера Беларус 1221 — Climate-si" width="1024" height="768" loading="lazy"></div>
+      </div>
+      <div class="wcard" id="w-remont-konditsionera-belarus-1523" role="button" tabindex="0" data-src="images/works/remont-konditsionera-belarus-1523.jpg" data-title="Ремонт кондиционера на Беларус 1523.3" aria-label="Открыть фото: Ремонт кондиционера на Беларус 1523.3">
+        <div class="wpic"><img src="images/works/remont-konditsionera-belarus-1523.jpg" alt="Ремонт кондиционера на Беларус 1523.3 — работы Climate-si, Краснодарский край" title="Ремонт кондиционера на Беларус 1523.3 — Climate-si" width="1024" height="768" loading="lazy"></div>
+      </div>
+      <div class="wcard" id="w-remont-konditsionera-k-744" role="button" tabindex="0" data-src="images/works/remont-konditsionera-k-744.jpg" data-title="Ремонт кондиционера К-744" aria-label="Открыть фото: Ремонт кондиционера К-744">
+        <div class="wpic"><img src="images/works/remont-konditsionera-k-744.jpg" alt="Ремонт кондиционера К-744 — работы Climate-si, Краснодарский край" title="Ремонт кондиционера К-744 — Climate-si" width="1024" height="768" loading="lazy"></div>
+      </div>
+      <div class="wcard" id="w-remont-konditsionera-traktora-t-150" role="button" tabindex="0" data-src="images/works/remont-konditsionera-traktora-t-150.jpg" data-title="Ремонт кондиционера трактора Т-150" aria-label="Открыть фото: Ремонт кондиционера трактора Т-150">
+        <div class="wpic"><img src="images/works/remont-konditsionera-traktora-t-150.jpg" alt="Ремонт кондиционера трактора Т-150 — работы Climate-si, Краснодарский край" title="Ремонт кондиционера трактора Т-150 — Climate-si" width="1024" height="768" loading="lazy"></div>
+      </div>
+      <div class="wcard" id="w-remont-konditsionera-torum-740" role="button" tabindex="0" data-src="images/works/remont-konditsionera-torum-740.jpg" data-title="Ремонт кондиционера Торум 740" aria-label="Открыть фото: Ремонт кондиционера Торум 740">
+        <div class="wpic"><img src="images/works/remont-konditsionera-torum-740.jpg" alt="Ремонт кондиционера Торум 740 — работы Climate-si, Краснодарский край" title="Ремонт кондиционера Торум 740 — Climate-si" width="1024" height="768" loading="lazy"></div>
+      </div>
+      <div class="wcard" id="w-remont-konditsionera-versatile-2375" role="button" tabindex="0" data-src="images/works/remont-konditsionera-versatile-2375.jpg" data-title="Ремонт кондиционера Versatile 2375" aria-label="Открыть фото: Ремонт кондиционера Versatile 2375">
+        <div class="wpic"><img src="images/works/remont-konditsionera-versatile-2375.jpg" alt="Ремонт кондиционера Versatile 2375 — работы Climate-si, Краснодарский край" title="Ремонт кондиционера Versatile 2375 — Climate-si" width="1024" height="768" loading="lazy"></div>
+      </div>
+      <div class="wcard" id="w-remont-konditsionera-case-340" role="button" tabindex="0" data-src="images/works/remont-konditsionera-case-340.jpg" data-title="Ремонт кондиционера на Case 340" aria-label="Открыть фото: Ремонт кондиционера на Case 340">
+        <div class="wpic"><img src="images/works/remont-konditsionera-case-340.jpg" alt="Ремонт кондиционера на Case 340 — работы Climate-si, Краснодарский край" title="Ремонт кондиционера на Case 340 — Climate-si" width="1024" height="768" loading="lazy"></div>
+      </div>
+      <div class="wcard" id="w-remont-konditsionera-cat-3004-a1" role="button" tabindex="0" data-src="images/works/remont-konditsionera-cat-3004-a1.jpg" data-title="Ремонт кондиционера CAT 3004 A1" aria-label="Открыть фото: Ремонт кондиционера CAT 3004 A1">
+        <div class="wpic"><img src="images/works/remont-konditsionera-cat-3004-a1.jpg" alt="Ремонт кондиционера CAT 3004 A1 — работы Climate-si, Краснодарский край" title="Ремонт кондиционера CAT 3004 A1 — Climate-si" width="1024" height="768" loading="lazy"></div>
+      </div>
+      <div class="wcard" id="w-remont-konditsionera-jcb" role="button" tabindex="0" data-src="images/works/remont-konditsionera-jcb.jpg" data-title="Ремонт кондиционера JCB" aria-label="Открыть фото: Ремонт кондиционера JCB">
+        <div class="wpic"><img src="images/works/remont-konditsionera-jcb.jpg" alt="Ремонт кондиционера JCB — работы Climate-si, Краснодарский край" title="Ремонт кондиционера JCB — Climate-si" width="1024" height="768" loading="lazy"></div>
+      </div>
+      <div class="wcard" id="w-remont-konditsionera-kamaz" role="button" tabindex="0" data-src="images/works/remont-konditsionera-kamaz.jpg" data-title="Ремонт кондиционера КАМАЗ" aria-label="Открыть фото: Ремонт кондиционера КАМАЗ">
+        <div class="wpic"><img src="images/works/remont-konditsionera-kamaz.jpg" alt="Ремонт кондиционера КАМАЗ — работы Climate-si, Краснодарский край" title="Ремонт кондиционера КАМАЗ — Climate-si" width="1024" height="768" loading="lazy"></div>
+      </div>
+      <div class="wcard" id="w-remont-konditsionera-daf" role="button" tabindex="0" data-src="images/works/remont-konditsionera-daf.jpg" data-title="Ремонт кондиционера на грузовике DAF" aria-label="Открыть фото: Ремонт кондиционера на грузовике DAF">
+        <div class="wpic"><img src="images/works/remont-konditsionera-daf.jpg" alt="Ремонт кондиционера на грузовике DAF — работы Climate-si, Краснодарский край" title="Ремонт кондиционера на грузовике DAF — Climate-si" width="1024" height="768" loading="lazy"></div>
+      </div>
+      <div class="wcard" id="w-remont-konditsionera-ekskavatora" role="button" tabindex="0" data-src="images/works/remont-konditsionera-ekskavatora.jpg" data-title="Ремонт кондиционера экскаватора" aria-label="Открыть фото: Ремонт кондиционера экскаватора">
+        <div class="wpic"><img src="images/works/remont-konditsionera-ekskavatora.jpg" alt="Ремонт кондиционера экскаватора — работы Climate-si, Краснодарский край" title="Ремонт кондиционера экскаватора — Climate-si" width="1024" height="768" loading="lazy"></div>
+      </div>
+      <div class="wcard" id="w-remont-konditsionera-opryskivatelya-tuman" role="button" tabindex="0" data-src="images/works/remont-konditsionera-opryskivatelya-tuman.jpg" data-title="Ремонт кондиционера на опрыскивателе «Туман»" aria-label="Открыть фото: Ремонт кондиционера на опрыскивателе «Туман»">
+        <div class="wpic"><img src="images/works/remont-konditsionera-opryskivatelya-tuman.jpg" alt="Ремонт кондиционера на опрыскивателе «Туман» — работы Climate-si, Краснодарский край" title="Ремонт кондиционера на опрыскивателе «Туман» — Climate-si" width="1024" height="768" loading="lazy"></div>
+      </div>
+      <div class="wcard" id="w-vosstanovlenie-konditsionera-na-traktore" role="button" tabindex="0" data-src="images/works/vosstanovlenie-konditsionera-na-traktore.jpg" data-title="Восстановление кондиционера на тракторе" aria-label="Открыть фото: Восстановление кондиционера на тракторе">
+        <div class="wpic"><img src="images/works/vosstanovlenie-konditsionera-na-traktore.jpg" alt="Восстановление кондиционера на тракторе — работы Climate-si, Краснодарский край" title="Восстановление кондиционера на тракторе — Climate-si" width="1024" height="768" loading="lazy"></div>
+      </div>
+  </div>
+</div>
+
+<div class="wrap">
+  <div class="ctastrip">
+    <div>
+      <b>Нужно так же на вашей технике?</b>
+      <span>Пришлите фото машины в WhatsApp — скажем, что можно сделать, в какие сроки и за сколько</span>
+    </div>
+    <a class="btn" href="tel:+79288807335" style="box-shadow:none">📞 +7 928 880-73-35</a>
+  </div>
+</div>
+
+<footer>
+  <div class="wrap">
+    <div><b style="color:#fff">Climate-si</b> · климатические системы спецтехники<br>© <span id="year"></span> · Краснодарский край</div>
+    <div><a href="index.html">← На главную</a> · <a href="index.html#shop">Запчасти со склада</a> · <a href="index.html#contacts">Контакты и заявка</a></div>
+  </div>
+</footer>
+
+<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Просмотр фото работ">
+  <button class="lbx" id="lbClose" type="button" aria-label="Закрыть">✕</button>
+  <button class="lbnav lbprev" id="lbPrev" type="button" aria-label="Предыдущее фото">‹</button>
+  <figure class="lbfig"><img id="lbImg" src="" alt=""><figcaption><b id="lbTitle"></b><span id="lbCount"></span></figcaption></figure>
+  <button class="lbnav lbnext" id="lbNext" type="button" aria-label="Следующее фото">›</button>
+</div>
+
+<script>
+document.getElementById('year').textContent = new Date().getFullYear();
+
+// ===== Каталог работ: лайтбокс =====
+(function(){
+  const grid = document.getElementById('wGrid');
+  if (!grid) return;
+  const cards = [].slice.call(grid.querySelectorAll('.wcard'));
+  function visible(){ return cards; }
+
+  const lb = document.getElementById('lb');
+  const lbImg = document.getElementById('lbImg');
+  const lbTitle = document.getElementById('lbTitle');
+  const lbCount = document.getElementById('lbCount');
+  let list = [], idx = 0;
+
+  function show(i){
+    list = visible();
+    if (!list.length) return;
+    idx = (i + list.length) % list.length;
+    const c = list[idx];
+    lbImg.src = c.dataset.src;
+    lbImg.alt = c.dataset.title;
+    lbTitle.textContent = c.dataset.title;
+    lbCount.textContent = (idx + 1) + ' из ' + list.length + ' · стрелки ← → , закрыть Esc';
+  }
+  function open(i){ show(i); lb.classList.add('open'); document.body.style.overflow = 'hidden'; }
+  function close(){ lb.classList.remove('open'); document.body.style.overflow = ''; lbImg.src = ''; }
+
+  cards.forEach(c => {
+    c.addEventListener('click', () => open(visible().indexOf(c)));
+    c.addEventListener('keydown', e => {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); open(visible().indexOf(c)); }
+    });
+  });
+  document.getElementById('lbClose').addEventListener('click', close);
+  document.getElementById('lbPrev').addEventListener('click', () => show(idx - 1));
+  document.getElementById('lbNext').addEventListener('click', () => show(idx + 1));
+  lb.addEventListener('click', e => { if (e.target === lb) close(); });
+  document.addEventListener('keydown', e => {
+    if (!lb.classList.contains('open')) return;
+    if (e.key === 'Escape') close();
+    else if (e.key === 'ArrowLeft') show(idx - 1);
+    else if (e.key === 'ArrowRight') show(idx + 1);
+  });
+
+  // Открытие конкретного фото по ссылке с главной: works.html#w-mtz
+  const h = decodeURIComponent(location.hash || '').replace('#','');
+  if (h) {
+    const target = document.getElementById(h);
+    if (target) {
+      open(visible().indexOf(target));
+    }
+  }
+})();
+</script>
+
+</body>
+</html>

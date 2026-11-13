@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Кронштейны компрессора — запчасти со склада | Climate-si</title>
+<meta name="description" content="Кронштейны компрессора — каталог, цены, наличие. Climate-si, Краснодарский край. Подбор по марке техники, отгрузка день в день.">
+<style>
+  :root{
+    --green:#0f3d2e; --green2:#14532d; --green3:#1d6a44;
+    --amber:#f59e0b; --amber2:#d97706;
+    --bg:#f4f6f2; --card:#ffffff; --ink:#14211a; --muted:#5c6b60;
+    --radius:16px; --shadow:0 10px 30px rgba(15,61,46,.10);
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:'Segoe UI',system-ui,-apple-system,Roboto,Arial,sans-serif;color:var(--ink);background:var(--bg);line-height:1.55}
+  img{max-width:100%;display:block}
+  a{text-decoration:none;color:inherit}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 20px}
+  .btn{display:inline-block;background:var(--amber);color:#1c1200;font-weight:700;padding:13px 24px;border-radius:12px;border:none;cursor:pointer;font-size:15.5px;transition:.2s;box-shadow:0 6px 18px rgba(245,158,11,.35)}
+  .btn:hover{background:var(--amber2);transform:translateY(-2px)}
+
+  .topbar{background:var(--green);color:#cfe3d6;font-size:14px;padding:8px 0}
+  .topbar .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+  .topbar b{color:#fff}
+  .topbar a:hover{color:var(--amber)}
+
+  header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.96);backdrop-filter:blur(8px);box-shadow:0 2px 14px rgba(0,0,0,.07)}
+  .nav{display:flex;align-items:center;justify-content:space-between;padding:14px 0;gap:14px;flex-wrap:wrap}
+  .logo{font-size:22px;font-weight:800;color:var(--green)}
+  .logo span{color:var(--amber)}
+  .logo small{display:block;font-size:11px;font-weight:600;color:var(--muted);letter-spacing:.6px;text-transform:uppercase}
+  .back{font-weight:700;color:var(--green3);font-size:17px}
+  .back:hover{color:var(--amber2)}
+
+  .crumbs{padding:22px 0 0;font-size:13.5px;color:var(--muted)}
+  .crumbs a{color:var(--green3);font-weight:600}
+  .crumbs a:hover{color:var(--amber2)}
+
+  .pagehead{padding:26px 0 8px}
+  .pagehead .kicker{color:var(--amber2);font-weight:800;letter-spacing:1.4px;font-size:13px;text-transform:uppercase;margin-bottom:8px}
+  .pagehead h1{font-size:clamp(26px,3.6vw,40px);color:var(--green);margin-bottom:10px}
+  .pagehead p{color:var(--muted);max-width:760px;font-size:16px}
+
+  .filters{display:flex;gap:10px;flex-wrap:wrap;padding:22px 0 6px}
+  .chip{border:1.5px solid #d5ddd2;background:#fff;color:var(--green);font-weight:700;font-size:14px;padding:9px 18px;border-radius:999px;cursor:pointer;transition:.15s}
+  .chip:hover{border-color:var(--green3)}
+  .chip.active{background:var(--green2);border-color:var(--green2);color:#fff}
+
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:20px;padding:26px 0 10px}
+  .ccard{background:var(--card);border:1px solid #e6eae3;border-radius:18px;padding:22px;display:flex;flex-direction:column;position:relative;transition:.2s;cursor:pointer}
+  .ccard:hover{transform:translateY(-4px);box-shadow:var(--shadow);border-color:#c9d6c7}
+.ccard .pic{height:165px;border-radius:12px;background:#fff;overflow:hidden;margin-bottom:14px;padding:4px}
+.ccard .pic img{width:100%;height:100%;object-fit:contain;transition:.3s}
+.ccard:hover .pic img{transform:scale(1.05)}
+
+/* Карусель фото в карточке */
+.ccard .pic.car{position:relative;padding:0}
+.ccard .track{display:flex;height:100%;transition:transform .5s ease}
+.ccard .track img{min-width:100%;width:100%;height:100%;object-fit:contain;transition:none}
+.ccard:hover .pic.car img{transform:none}
+.ccard .cnav{position:absolute;top:50%;transform:translateY(-50%);width:32px;height:32px;border-radius:50%;border:none;background:var(--amber);color:#1c1200;font-size:18px;font-weight:800;line-height:1;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 3px 12px rgba(0,0,0,.3);transition:.15s;z-index:6}
+.ccard .cnav:hover{background:var(--amber2);transform:translateY(-50%) scale(1.1)}
+.ccard .cnav.prev{left:7px}
+.ccard .cnav.next{right:7px}
+.ccard .dots{position:absolute;bottom:7px;left:0;right:0;display:flex;gap:6px;justify-content:center;z-index:3}
+.ccard .dots i{width:7px;height:7px;border-radius:50%;background:rgba(15,61,46,.25)}
+.ccard .dots i.on{background:var(--green2)}
+
+/* Характеристики по наведению */
+/* Карточка с выпадающей панелью: фото крупно сверху, список выезжает ВНИЗ под карточку */
+.ccard.drop .pic{height:auto;aspect-ratio:1/1;padding:0;margin:0 -22px 14px;border-radius:0}
+.ccard.drop:hover{z-index:20}
+.ccard .specs{position:absolute;top:calc(100% - 10px);left:0;right:0;background:rgba(255,255,255,.98);border:1px solid #e6eae3;border-top:none;border-radius:0 0 18px 18px;padding:20px 22px;z-index:25;opacity:0;visibility:hidden;transform:translateY(-8px);transition:opacity .25s ease,transform .25s ease,visibility .25s;display:flex;flex-direction:column;box-shadow:0 20px 34px rgba(15,61,46,.16)}
+.ccard:hover .specs,.ccard:active .specs{opacity:1;visibility:visible;transform:translateY(0)}
+.ccard .specs .stitle{font-size:19px;font-weight:800;color:var(--ink);line-height:1.2}
+.ccard .specs .savail{font-size:13px;font-weight:700;color:#16a34a;margin:4px 0 10px}
+.ccard .specs .shead{font-size:11.5px;font-weight:800;letter-spacing:1.2px;color:var(--muted);text-transform:uppercase;margin-bottom:6px}
+.ccard .specs .row{display:flex;justify-content:space-between;gap:12px;font-size:13.5px;padding:6px 0;border-bottom:1px dashed #e3e8e0}
+.ccard .specs .row span{color:var(--muted)}
+.ccard .specs .row b{color:var(--ink);font-weight:700;text-align:right;white-space:nowrap}
+.ccard .specs .shint{margin-top:8px;padding-top:12px;font-weight:800;font-size:14.5px;color:var(--amber2)}
+.ccard .specs .stext{font-size:13.5px;color:var(--muted);margin-bottom:12px;line-height:1.5}
+.ccard .specs .push{margin-top:auto}
+.ccard .specs .addcart{margin-top:14px;background:var(--amber);color:#1c1200;border:none;font-weight:800;font-size:15px;padding:12px;border-radius:12px;cursor:pointer;transition:.15s;width:100%}
+.ccard .specs .addcart:hover{background:var(--amber2);transform:translateY(-1px)}
+/* Счётчик количества на карточке */
+.qtyrow{display:flex;gap:10px;margin-top:14px;align-items:stretch}
+.qtyrow .addcart{margin-top:0;flex:1;width:auto}
+.qty{display:flex;align-items:stretch;border:1.5px solid #d8e0d4;border-radius:12px;overflow:hidden;flex:none;background:#fff}
+.qty button{width:31px;border:none;background:#f2f6ef;color:var(--green);font-size:17px;font-weight:800;cursor:pointer;transition:.15s;padding:0}
+.qty button:hover{background:#e4ecdf;color:var(--amber2)}
+.qty input{width:42px;border:none;text-align:center;font-size:15px;font-weight:800;color:var(--ink);background:#fff;font-family:inherit;appearance:textfield;-moz-appearance:textfield}
+.qty input:focus{outline:none;background:#fdf8ee}
+.qty input::-webkit-outer-spin-button,.qty input::-webkit-inner-spin-button{-webkit-appearance:none;margin:0}
+.cart{font-weight:800;color:var(--green2);font-size:21px;position:relative;display:inline-flex;align-items:center;background:#fdf8ee;border:2px solid var(--amber);border-radius:999px;padding:13px 24px;transition:.15s;box-shadow:0 6px 18px rgba(245,158,11,.35)}
+.cart:hover{color:#1c1200;background:var(--amber);transform:translateY(-1px);box-shadow:0 7px 18px rgba(245,158,11,.42)}
+.cart .cartico{width:44px;height:44px;margin-right:12px;flex:none;display:block}
+.cart b{display:inline-block;background:var(--amber);color:#1c1200;font-size:18px;min-width:38px;height:38px;line-height:38px;text-align:center;border-radius:999px;padding:0 11px;margin-left:14px;box-shadow:0 3px 10px rgba(245,158,11,.6)}
+.cart:hover b{background:#1c1200;color:var(--amber)}
+@media(max-width:420px){ .cart{font-size:18px;padding:10px 16px} .cart .cartico{width:34px;height:34px;margin-right:9px} .cart b{font-size:15px;min-width:30px;height:30px;line-height:30px} }
+
+/* Выезжающая корзина */
+.cartOverlay{position:fixed;inset:0;background:rgba(13,32,22,.45);z-index:80;opacity:0;visibility:hidden;transition:.25s}
+.cartOverlay.open{opacity:1;visibility:visible}
+.cartDrawer{position:fixed;top:0;right:0;bottom:0;width:min(380px,94vw);background:#fff;z-index:90;transform:translateX(105%);transition:transform .32s ease;display:flex;flex-direction:column;box-shadow:-12px 0 40px rgba(0,0,0,.18)}
+.cartDrawer.open{transform:translateX(0)}
+.cdHead{display:flex;justify-content:space-between;align-items:center;padding:18px 20px;border-bottom:1px solid #eaeef0}
+.cdHead b{font-size:19px;color:var(--green)}
+.cdHead button{border:none;background:#eef3ec;width:32px;height:32px;border-radius:10px;cursor:pointer;font-size:14px}
+.cdList{flex:1;overflow-y:auto;padding:10px 20px}
+.cdItem{display:flex;justify-content:space-between;gap:10px;align-items:center;padding:12px 0;border-bottom:1px dashed #e6eae3;font-size:14.5px}
+.cdItem .nm{flex:1;min-width:0}
+.cdItem .cdDel{border:none;background:#fdebec;color:#c0392b;width:26px;height:26px;border-radius:8px;cursor:pointer;flex:none;font-size:12px}
+.cdThumb{position:relative;flex:none;width:28px;height:28px;border:1.5px solid #d8e0d4;border-radius:8px;display:flex;align-items:center;justify-content:center;background:#f8faf6;color:var(--green3);cursor:pointer;transition:.15s}
+.cdThumb:hover{border-color:var(--amber);color:var(--amber2);background:#fdf8ee}
+#cdHover{position:fixed;width:180px;height:180px;background:#fff;border:1px solid #e6eae3;border-radius:14px;box-shadow:0 16px 38px rgba(15,61,46,.25);padding:8px;z-index:95;display:none;pointer-events:none}
+#cdHover img{width:100%;height:100%;object-fit:contain}
+.cdQty{display:flex;align-items:center;gap:4px;flex:none}
+.cdQty button{border:1.5px solid #d8e0d4;background:#f2f6ef;color:var(--green);width:24px;height:24px;border-radius:7px;cursor:pointer;font-size:14px;font-weight:800;line-height:1;padding:0}
+.cdQty button:hover{border-color:var(--amber);color:var(--amber2)}
+.cdQty span{min-width:42px;text-align:center;font-weight:800;font-size:13px;color:var(--ink)}
+.cdTotal{text-align:right;font-size:14px;color:var(--muted);padding-top:10px}
+.cdTotal b{color:var(--green)}
+.cdEmpty{color:var(--muted);text-align:center;padding:44px 12px;font-size:14.5px;line-height:1.6}
+.cdFoot{padding:16px 20px;border-top:1px solid #eaeef0;display:flex;flex-direction:column;gap:10px}
+.btnSend{background:var(--amber);color:#1c1200;border:none;font-weight:800;font-size:15px;padding:14px;border-radius:12px;cursor:pointer;transition:.15s}
+.btnSend:hover{background:var(--amber2)}
+.btnClear{background:transparent;border:1.5px solid #d5ddd2;color:var(--muted);font-weight:700;padding:11px;border-radius:12px;cursor:pointer;font-size:14px}
+.btnClear:hover{border-color:#c0392b;color:#c0392b}
+.cdField{display:flex;flex-direction:column;gap:8px;margin-bottom:10px}
+.cdField input,.cdField textarea{padding:10px 12px;border:1.5px solid #d8e0d4;border-radius:10px;font-size:14px;font-family:inherit;background:#fbfdfb}
+.cdField input:focus,.cdField textarea:focus{outline:none;border-color:var(--green3)}
+.coRadio{display:flex;flex-direction:column;gap:6px;font-size:13.5px}
+.coRadio label{display:flex;gap:8px;align-items:flex-start;cursor:pointer;color:var(--ink)}
+.coRadio input{accent-color:var(--green2);margin-top:2px}
+.cdNote{font-size:12.5px;color:var(--muted);background:#f2f6ef;border-radius:10px;padding:9px 11px;line-height:1.45;margin-bottom:10px}
+  .ccard .tag{position:absolute;top:16px;right:16px;font-size:11px;font-weight:800;letter-spacing:.4px;text-transform:uppercase;border-radius:6px;padding:3px 9px;z-index:2}
+  .tag.new{background:#e7f4ec;color:var(--green3)}
+  .tag.reman{background:#fdeed3;color:var(--amber2)}
+  .ccard b.t{font-size:17.5px;color:var(--green);margin-bottom:4px}
+  .ccard .price{align-self:flex-end;margin-top:auto;background:var(--amber);color:#1c1200;font-weight:800;font-size:17px;padding:8px 16px;border-radius:12px;box-shadow:0 5px 14px rgba(245,158,11,.35);letter-spacing:.2px;line-height:1.2;border:none;cursor:pointer;font-family:inherit;display:inline-flex;align-items:center;gap:8px;transition:.15s}
+  .ccard .price:hover{background:var(--amber2);transform:translateY(-1px);box-shadow:0 7px 18px rgba(245,158,11,.5)}
+  .ccard .price .bk{font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.9px;color:rgba(28,18,0,.72)}
+
+  /* Всплывающее сообщение после «Купить» */
+  .buyPop{position:fixed;left:50%;bottom:26px;transform:translateX(-50%) translateY(18px);background:#fff;border:1px solid #e6eae3;border-radius:16px;box-shadow:0 18px 44px rgba(15,61,46,.28);padding:16px 18px;z-index:100;display:flex;flex-direction:column;gap:11px;min-width:290px;max-width:92vw;opacity:0;visibility:hidden;transition:.22s}
+  .buyPop.open{opacity:1;visibility:visible;transform:translateX(-50%) translateY(0)}
+  .buyPop .bmsg{font-weight:700;font-size:14.5px;color:var(--ink);line-height:1.35}
+  .buyPop .brow{display:flex;gap:9px}
+  .buyPop button{flex:1;padding:11px 12px;border-radius:11px;font-size:14px;font-weight:800;cursor:pointer;font-family:inherit;transition:.15s}
+  .buyPop .bgo{background:var(--amber);color:#1c1200;border:none}
+  .buyPop .bgo:hover{background:var(--amber2)}
+  .buyPop .bcont{background:#eef3ec;color:var(--green);border:1.5px solid #d8e0d4}
+  .buyPop .bcont:hover{border-color:var(--green3)}
+  .ccard .app{font-size:13px;font-weight:700;color:var(--amber2);margin-bottom:8px}
+  .ccard p{font-size:14px;color:var(--muted);flex:1;margin-bottom:14px}
+  .ccard .go{font-weight:800;font-size:14.5px;color:var(--green3)}
+  .ccard:hover .go{color:var(--amber2)}
+
+  .ctastrip{background:var(--green2);color:#fff;border-radius:18px;padding:28px;display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap;margin:36px 0}
+  .ctastrip b{font-size:20px;display:block;margin-bottom:4px}
+  .ctastrip span{color:#cfe3d3;font-size:14.5px}
+
+  footer{background:var(--green);color:#b9cfbf;padding:30px 0;font-size:14px;margin-top:50px}
+  footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;align-items:center}
+  footer a{color:#fff;font-weight:600}
+  footer a:hover{color:var(--amber)}
+
+  /* ===== Тележка покачивается каждые 3,2 с ===== */
+  @keyframes akCartRoll{0%,70%{transform:translateX(0)}78%{transform:translateX(2px)}84%{transform:translateX(-2px)}91%{transform:translateX(1px)}100%{transform:translateX(0)}}
+  .cartico{animation:akCartRoll 3.2s ease-in-out infinite}
+  @media(prefers-reduced-motion:reduce){ .cartico{animation:none} }
+
+  .soon{margin:22px 0 60px;background:var(--card);border:1px solid #e6eae3;border-radius:18px;padding:40px 28px;text-align:center}
+  .soon-ic{font-size:46px;line-height:1;margin-bottom:14px}
+  .soon b{display:block;font-size:20px;color:var(--green);margin-bottom:8px}
+  .soon p{color:var(--muted);max-width:560px;margin:0 auto 22px}
+  .soon-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+  .soon-btns .btn,.soon-btns .btnline{padding:13px 22px;border-radius:12px;font-weight:800;width:auto}
+  .soon-btns .btnline{border:1.5px solid var(--green2);color:var(--green2);background:transparent}
+  .soon-btns .btnline:hover{background:var(--green2);color:#fff}
+</style>
+</head>
+<body>
+<div class="topbar">
+  <div class="wrap">
+    <div>📍 Краснодарский край · склад компрессоров · <b>отгрузка в день заказа</b></div>
+    <div><a href="tel:+79288807335"><b>+7 928 880-73-35</b></a></div>
+  </div>
+</div>
+
+<header>
+  <div class="wrap nav">
+    <a class="logo" href="index.html">Climate<span>.si</span><small>климатические системы спецтехники</small></a>
+    <div style="display:flex;gap:20px;align-items:center">
+      <a class="cart" id="cartBtn" href="#"><img class="cartico" src="images/cart-icon.png" alt="" width="44" height="44">Корзина<b id="cartCount">0</b></a>
+      <a class="back" href="index.html#shop">← Все запчасти</a>
+    </div>
+  </div>
+</header>
+
+<div class="wrap crumbs"><a href="index.html">Главная</a> / <a href="index.html#shop">Запчасти со склада</a> / Кронштейны компрессора</div>
+
+<div class="wrap pagehead">
+  <div class="kicker">Раздел каталога · склад в Краснодарском крае</div>
+  <h1>Кронштейны компрессора</h1>
+  <p>Кронштейны, крепления и монтажные пластины под штатные места агрегатов.</p>
+</div>
+
+<div class="wrap">
+  <div class="soon">
+    <div class="soon-ic">📦</div>
+    <b>Раздел наполняется</b>
+    <p>Позиции по разделу «Кронштейны компрессора» есть на складе. Пришлите запрос — подтвердим наличие и цену в течение 30 минут.</p>
+    <div class="soon-btns">
+      <a class="btn" href="https://wa.me/79288807335?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%21%20%D0%98%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D0%B5%D1%82%20%D1%80%D0%B0%D0%B7%D0%B4%D0%B5%D0%BB%3A%20%D0%9A%D1%80%D0%BE%D0%BD%D1%88%D1%82%D0%B5%D0%B9%D0%BD%D1%8B%20%D0%BA%D0%BE%D0%BC%D0%BF%D1%80%D0%B5%D1%81%D1%81%D0%BE%D1%80%D0%B0.%20%D0%9F%D0%BE%D0%B4%D1%81%D0%BA%D0%B0%D0%B6%D0%B8%D1%82%D0%B5%20%D0%BD%D0%B0%D0%BB%D0%B8%D1%87%D0%B8%D0%B5%20%D0%B8%20%D1%86%D0%B5%D0%BD%D1%83." target="_blank" rel="noopener">Написать в WhatsApp</a>
+      <a class="btnline" href="tel:+79288807335">Позвонить: +7 928 880-73-35</a>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="wrap">
+    <div><b style="color:#fff">Climate-si</b> · климатические системы спецтехники<br>© <span id="year"></span> · Краснодарский край</div>
+    <div><a href="index.html">← На главную</a> · <a href="index.html#shop">Запчасти со склада</a> · <a href="index.html#contacts">Контакты и заявка</a></div>
+  </div>
+</footer>
+<script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>
